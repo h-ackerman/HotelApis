@@ -34,4 +34,12 @@ public class UtilisateurControllerGraphQL {
     public Utilisateur saveUtilisateur(@Argument Utilisateur utilisateur) {
         return utilisateurRepository.save(utilisateur);
     }
+
+    @MutationMapping
+    public boolean deleteUtilisateur(@Argument Long id) {
+        if(utilisateurRepository.existsById(id)) {
+            utilisateurRepository.deleteById(id);
+            return true;
+        } return false;
+    }
 }

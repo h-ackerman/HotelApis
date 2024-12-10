@@ -1,8 +1,6 @@
 package org.example.projetglobal.entities;
 
 
-import java.util.Date;
-
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -24,15 +22,16 @@ public class Reservation {
     @OneToOne
     @JoinColumn(name = "chambre_id")
     private Chambre chambre;
-    @Temporal(TemporalType.DATE)
-    private Date dateDebut;
-    @Temporal(TemporalType.DATE)
-    private Date dateFin;
+
+    private String dateDebut;
+
+    private String dateFin;
+
     private String preferences;
 
     public Reservation() {}
 
-    public Reservation(Client client, Chambre chambre, Date dateDebut, Date dateFin, String preferences) {
+    public Reservation(Client client, Chambre chambre, String dateDebut, String dateFin, String preferences) {
         this.client = client;
         this.chambre = chambre;
         this.dateDebut = dateDebut;
@@ -56,19 +55,19 @@ public class Reservation {
         this.chambre = chambre;
     }
 
-    public Date getDateDebut() {
+    public String getDateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(Date dateDebut) {
+    public void setDateDebut(String dateDebut) {
         this.dateDebut = dateDebut;
     }
 
-    public Date getDateFin() {
+    public String getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(Date dateFin) {
+    public void setDateFin(String dateFin) {
         this.dateFin = dateFin;
     }
 

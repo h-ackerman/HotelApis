@@ -33,7 +33,7 @@ public class UtilisateurRestController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteUtilisateur(@PathVariable Long id) {
+    public ResponseEntity<Utilisateur> deleteUtilisateur(@PathVariable Long id) {
         if (utilisateurRepository.existsById(id)) {
             utilisateurRepository.deleteById(id);
             return ResponseEntity.ok().build();

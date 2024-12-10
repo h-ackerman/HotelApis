@@ -34,4 +34,12 @@ public class ChambreControllerGraphQL {
     public Chambre saveChambre(@Argument Chambre chambre) {
         return chambreRepository.save(chambre);
     }
+
+
+    public boolean deleteChambre(@Argument Long id) {
+        if(chambreRepository.existsById(id)) {
+            chambreRepository.deleteById(id);
+            return true;
+        } return false;
+    }
 }

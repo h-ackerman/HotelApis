@@ -59,5 +59,4 @@ public class ReservationRestController {
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
-
 }

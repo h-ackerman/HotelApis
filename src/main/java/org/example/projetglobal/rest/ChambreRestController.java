@@ -33,7 +33,7 @@ public class ChambreRestController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteChambre(@PathVariable Long id) {
+    public ResponseEntity<Chambre> deleteChambre(@PathVariable Long id) {
         if (chambreRepository.existsById(id)) {
             chambreRepository.deleteById(id);
             return ResponseEntity.ok().build();

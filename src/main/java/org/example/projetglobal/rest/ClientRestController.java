@@ -33,7 +33,7 @@ public class ClientRestController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteClient(@PathVariable Long id) {
+    public ResponseEntity<Client> deleteClient(@PathVariable Long id) {
         if (clientRepository.existsById(id)) {
             clientRepository.deleteById(id);
             return ResponseEntity.ok().build();

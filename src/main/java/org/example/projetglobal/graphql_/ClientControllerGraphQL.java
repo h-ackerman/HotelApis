@@ -34,5 +34,14 @@ public class ClientControllerGraphQL {
     public Client saveClient(@Argument Client client) {
         return clientRepository.save(client);
     }
+
+    @MutationMapping
+    public boolean deleteClient(@Argument Long id) {
+        if(clientRepository.existsById(id)) {
+            clientRepository.deleteById(id);
+            return true;
+        } return false;
+    }
+
 }
 

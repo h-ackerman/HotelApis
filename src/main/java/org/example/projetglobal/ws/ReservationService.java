@@ -41,8 +41,8 @@ public class ReservationService {
     @WebMethod
     public Reservation createReservation(@WebParam(name = "clientId") Long clientId,
                                          @WebParam(name = "chambreId") Long chambreId,
-                                         @WebParam(name = "dateDebut") Date dateDebut,
-                                         @WebParam(name = "dateFin") Date dateFin,
+                                         @WebParam(name = "dateDebut") String dateDebut,
+                                         @WebParam(name = "dateFin") String dateFin,
                                          @WebParam (name = "preferences" )String preferences) {
 
         // Vérification de l'existence du client
