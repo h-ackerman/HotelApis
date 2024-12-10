@@ -3,14 +3,13 @@ package org.example.projetglobal.ws;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebService;
-import org.example.projetglobal.Entities.Chambre;
-import org.example.projetglobal.Entities.Client;
-import org.example.projetglobal.Entities.Reservation;
+import org.example.projetglobal.entities.Chambre;
+import org.example.projetglobal.entities.Client;
+import org.example.projetglobal.entities.Reservation;
 import org.example.projetglobal.repositories.ChambreRepository;
 import org.example.projetglobal.repositories.ClientRepository;
 import org.example.projetglobal.repositories.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;

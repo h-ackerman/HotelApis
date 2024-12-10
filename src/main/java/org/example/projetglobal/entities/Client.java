@@ -1,4 +1,4 @@
-package org.example.projetglobal.Entities;
+package org.example.projetglobal.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

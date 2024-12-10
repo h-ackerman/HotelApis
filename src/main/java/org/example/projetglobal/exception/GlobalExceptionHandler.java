@@ -1,4 +1,4 @@
-package org.example.projetglobal.Exception;
+package org.example.projetglobal.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

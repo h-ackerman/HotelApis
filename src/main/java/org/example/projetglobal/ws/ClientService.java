@@ -3,7 +3,7 @@ package org.example.projetglobal.ws;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebService;
-import org.example.projetglobal.Entities.Client;
+import org.example.projetglobal.entities.Client;
 import org.example.projetglobal.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

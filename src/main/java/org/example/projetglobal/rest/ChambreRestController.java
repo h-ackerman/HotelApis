@@ -1,6 +1,6 @@
-package org.example.projetglobal.Rest;
+package org.example.projetglobal.rest;
 
-import org.example.projetglobal.Entities.Chambre;
+import org.example.projetglobal.entities.Chambre;
 import org.example.projetglobal.repositories.ChambreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,6 @@
 package org.example.projetglobal.repositories;
 
-import org.example.projetglobal.Entities.Utilisateur;
+import org.example.projetglobal.entities.Utilisateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

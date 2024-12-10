@@ -1,6 +1,6 @@
-package org.example.projetglobal.Controller;
+package org.example.projetglobal.graphql_;
 
-import org.example.projetglobal.Entities.Reservation;
+import org.example.projetglobal.entities.Reservation;
 import org.example.projetglobal.repositories.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;

@@ -1,4 +1,4 @@
-package org.example.projetglobal.Entities;
+package org.example.projetglobal.entities;
 
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;

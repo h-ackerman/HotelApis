@@ -1,13 +1,12 @@
-package org.example.projetglobal.Rest;
+package org.example.projetglobal.rest;
 
-import org.example.projetglobal.Entities.Reservation;
+import org.example.projetglobal.entities.Reservation;
 import org.example.projetglobal.repositories.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/reservations")
