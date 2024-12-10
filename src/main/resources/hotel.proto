@@ -1,7 +1,130 @@
 syntax= "proto3";
 
-option java_package = "org.example.projetglobal";
+option java_package = "org.example.projetglobal.stubs";
+
+message Client {
+  string id = 1;
+  string nom = 2;
+  string prenom = 3;
+  string email = 4;
+  string telephone = 5;
+}
+
+message Chambre {
+  string id = 1;
+  string type = 2;
+  float prix = 3;
+  bool disponible = 4;
+}
+
+message Reservation {
+  string id = 1;
+  Client client = 2;
+  Chambre chambre = 3;
+  string dateDebut = 4;
+  string dateFin = 5;
+  string preferences = 6;
+}
+
+message Utilisateur {
+  string id = 1;
+  string nomUtilisateur = 2;
+  string motDePasse = 3;
+  string role = 4;
+}
+
+message ClientInput {
+  string nom = 1;
+  string prenom = 2;
+  string email = 3;
+  string telephone = 4;
+}
+
+message ChambreInput {
+  string type = 1;
+  float prix = 2;
+  bool disponible = 3;
+}
+
+message ReservationInput {
+  string clientId = 1;
+  string chambreId = 2;
+  string dateDebut = 3;
+  string dateFin = 4;
+  string preferences = 5;
+}
+
+message UtilisateurInput {
+  string nomUtilisateur = 1;
+  string motDePasse = 2;
+  string role = 3;
+}
+
 
 service HotelService {
-  rpc()
+  rpc allClients (Empty) returns (ClientList);
+  rpc clientById (ClientIdRequest) returns (Client);
+  rpc saveClient (ClientInput) returns (Client);
+  rpc deleteClient (ClientIdRequest) returns (BoolResponse);
+
+  rpc allChambres (Empty) returns (ChambreList);
+  rpc chambreById (ChambreIdRequest) returns (Chambre);
+  rpc saveChambre (ChambreInput) returns (Chambre);
+  rpc deleteChambre (ChambreIdRequest) returns (BoolResponse);
+
+  rpc allUtilisateurs (Empty) returns (UtilisateurList);
+  rpc utilisateurById (UtilisateurIdRequest) returns (Utilisateur);
+  rpc saveUtilisateur (UtilisateurInput) returns (Utilisateur);
+  rpc deleteUtilisateur (UtilisateurIdRequest) returns (BoolResponse);
+
+  rpc allReservations (Empty) returns (ReservationList);
+  rpc reservationById (ReservationIdRequest) returns (Reservation);
+  rpc saveReservation (ReservationInput) returns (Reservation);
+  rpc deleteReservation (ReservationIdRequest) returns (BoolResponse);
+  rpc updateReservation (UpdateReservationRequest) returns (Reservation);
+}
+
+// Define request and response messages
+message Empty {}
+
+message ClientIdRequest {
+  string id = 1;
+}
+
+message ChambreIdRequest {
+  string id = 1;
+}
+
+message ReservationIdRequest {
+  string id = 1;
+}
+
+message UtilisateurIdRequest {
+  string id = 1;
+}
+
+message BoolResponse {
+  bool success = 1;
+}
+
+// Define list responses
+message ClientList {
+  repeated Client clients = 1;
+}
+
+message ChambreList {
+  repeated Chambre chambres = 1;
+}
+
+message ReservationList {
+  repeated Reservation reservations = 1;
+}
+
+message UtilisateurList {
+  repeated Utilisateur utilisateurs = 1;
+}
+
+message UpdateReservationRequest {
+  string id = 1;
+  ReservationInput reservation = 2;
 }

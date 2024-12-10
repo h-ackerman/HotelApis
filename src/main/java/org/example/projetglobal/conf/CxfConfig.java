@@ -5,7 +5,6 @@ import org.example.projetglobal.ws.ChambreService;
 import org.example.projetglobal.ws.ClientService;
 import org.example.projetglobal.ws.ReservationService;
 import org.example.projetglobal.ws.UtilisateurService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
