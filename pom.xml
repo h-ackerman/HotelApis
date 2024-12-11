@@ -15,9 +15,21 @@
 
     <properties>
         <java.version>21</java.version>
-        <grpc.version>1.53.0</grpc.version>
-        <protobuf.version>3.21.12</protobuf.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Use gRPC BOM for version alignment -->
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-bom</artifactId>
+                <version>1.53.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <!-- Spring Boot Dependencies -->
         <dependency>
@@ -85,26 +97,32 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Protobuf and gRPC -->
+        <!-- Protobuf -->
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>3.22.0</version>
+            <version>3.21.12</version>
         </dependency>
+
+        <!-- gRPC Dependencies -->
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-netty-shaded</artifactId>
-            <version>1.53.0</version>
         </dependency>
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-protobuf</artifactId>
-            <version>1.53.0</version>
         </dependency>
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-stub</artifactId>
-            <version>1.53.0</version>
+        </dependency>
+
+        <!-- gRPC Spring Boot Starter -->
+        <dependency>
+            <groupId>net.devh</groupId>
+            <artifactId>grpc-server-spring-boot-starter</artifactId>
+            <version>3.1.0.RELEASE</version>
         </dependency>
     </dependencies>
 

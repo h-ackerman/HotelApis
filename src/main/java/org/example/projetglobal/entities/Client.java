@@ -35,10 +35,6 @@ public class Client {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getNom() {
         return nom;
     }
@@ -70,5 +66,7 @@ public class Client {
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
+
+
 }
 

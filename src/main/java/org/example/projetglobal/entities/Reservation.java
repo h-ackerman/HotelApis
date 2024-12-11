@@ -15,12 +15,10 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "client_id")
+    @ManyToOne
     private Client client;
 
-    @OneToOne
-    @JoinColumn(name = "chambre_id")
+    @ManyToOne
     private Chambre chambre;
 
     private String dateDebut;
@@ -79,7 +77,9 @@ public class Reservation {
         this.preferences = preferences;
     }
 
-
+    public Long getId() {
+        return id;
+    }
 }
 
 

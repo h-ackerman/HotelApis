@@ -28,21 +28,21 @@ public final class HotelServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty,
-      org.example.projetglobal.stubs.Hotel.ClientList> getAllClientsMethod;
+      org.example.projetglobal.stubs.Hotel.GetAllClientsResponse> getAllClientsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "allClients",
       requestType = org.example.projetglobal.stubs.Hotel.Empty.class,
-      responseType = org.example.projetglobal.stubs.Hotel.ClientList.class,
+      responseType = org.example.projetglobal.stubs.Hotel.GetAllClientsResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty,
-      org.example.projetglobal.stubs.Hotel.ClientList> getAllClientsMethod() {
-    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.ClientList> getAllClientsMethod;
+      org.example.projetglobal.stubs.Hotel.GetAllClientsResponse> getAllClientsMethod() {
+    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.GetAllClientsResponse> getAllClientsMethod;
     if ((getAllClientsMethod = HotelServiceGrpc.getAllClientsMethod) == null) {
       synchronized (HotelServiceGrpc.class) {
         if ((getAllClientsMethod = HotelServiceGrpc.getAllClientsMethod) == null) {
           HotelServiceGrpc.getAllClientsMethod = getAllClientsMethod = 
-              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.ClientList>newBuilder()
+              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.GetAllClientsResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "HotelService", "allClients"))
@@ -50,7 +50,7 @@ public final class HotelServiceGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.example.projetglobal.stubs.Hotel.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.projetglobal.stubs.Hotel.ClientList.getDefaultInstance()))
+                  org.example.projetglobal.stubs.Hotel.GetAllClientsResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new HotelServiceMethodDescriptorSupplier("allClients"))
                   .build();
           }
@@ -91,28 +91,28 @@ public final class HotelServiceGrpc {
      return getClientByIdMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ClientInput,
+  private static volatile io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ClientRequest,
       org.example.projetglobal.stubs.Hotel.Client> getSaveClientMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "saveClient",
-      requestType = org.example.projetglobal.stubs.Hotel.ClientInput.class,
+      requestType = org.example.projetglobal.stubs.Hotel.ClientRequest.class,
       responseType = org.example.projetglobal.stubs.Hotel.Client.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ClientInput,
+  public static io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ClientRequest,
       org.example.projetglobal.stubs.Hotel.Client> getSaveClientMethod() {
-    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ClientInput, org.example.projetglobal.stubs.Hotel.Client> getSaveClientMethod;
+    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ClientRequest, org.example.projetglobal.stubs.Hotel.Client> getSaveClientMethod;
     if ((getSaveClientMethod = HotelServiceGrpc.getSaveClientMethod) == null) {
       synchronized (HotelServiceGrpc.class) {
         if ((getSaveClientMethod = HotelServiceGrpc.getSaveClientMethod) == null) {
           HotelServiceGrpc.getSaveClientMethod = getSaveClientMethod = 
-              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.ClientInput, org.example.projetglobal.stubs.Hotel.Client>newBuilder()
+              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.ClientRequest, org.example.projetglobal.stubs.Hotel.Client>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "HotelService", "saveClient"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.projetglobal.stubs.Hotel.ClientInput.getDefaultInstance()))
+                  org.example.projetglobal.stubs.Hotel.ClientRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.example.projetglobal.stubs.Hotel.Client.getDefaultInstance()))
                   .setSchemaDescriptor(new HotelServiceMethodDescriptorSupplier("saveClient"))
@@ -156,21 +156,21 @@ public final class HotelServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty,
-      org.example.projetglobal.stubs.Hotel.ChambreList> getAllChambresMethod;
+      org.example.projetglobal.stubs.Hotel.GetAllChambresResponse> getAllChambresMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "allChambres",
       requestType = org.example.projetglobal.stubs.Hotel.Empty.class,
-      responseType = org.example.projetglobal.stubs.Hotel.ChambreList.class,
+      responseType = org.example.projetglobal.stubs.Hotel.GetAllChambresResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty,
-      org.example.projetglobal.stubs.Hotel.ChambreList> getAllChambresMethod() {
-    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.ChambreList> getAllChambresMethod;
+      org.example.projetglobal.stubs.Hotel.GetAllChambresResponse> getAllChambresMethod() {
+    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.GetAllChambresResponse> getAllChambresMethod;
     if ((getAllChambresMethod = HotelServiceGrpc.getAllChambresMethod) == null) {
       synchronized (HotelServiceGrpc.class) {
         if ((getAllChambresMethod = HotelServiceGrpc.getAllChambresMethod) == null) {
           HotelServiceGrpc.getAllChambresMethod = getAllChambresMethod = 
-              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.ChambreList>newBuilder()
+              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.GetAllChambresResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "HotelService", "allChambres"))
@@ -178,7 +178,7 @@ public final class HotelServiceGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.example.projetglobal.stubs.Hotel.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.projetglobal.stubs.Hotel.ChambreList.getDefaultInstance()))
+                  org.example.projetglobal.stubs.Hotel.GetAllChambresResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new HotelServiceMethodDescriptorSupplier("allChambres"))
                   .build();
           }
@@ -219,28 +219,28 @@ public final class HotelServiceGrpc {
      return getChambreByIdMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ChambreInput,
+  private static volatile io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ChambreRequest,
       org.example.projetglobal.stubs.Hotel.Chambre> getSaveChambreMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "saveChambre",
-      requestType = org.example.projetglobal.stubs.Hotel.ChambreInput.class,
+      requestType = org.example.projetglobal.stubs.Hotel.ChambreRequest.class,
       responseType = org.example.projetglobal.stubs.Hotel.Chambre.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ChambreInput,
+  public static io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ChambreRequest,
       org.example.projetglobal.stubs.Hotel.Chambre> getSaveChambreMethod() {
-    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ChambreInput, org.example.projetglobal.stubs.Hotel.Chambre> getSaveChambreMethod;
+    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ChambreRequest, org.example.projetglobal.stubs.Hotel.Chambre> getSaveChambreMethod;
     if ((getSaveChambreMethod = HotelServiceGrpc.getSaveChambreMethod) == null) {
       synchronized (HotelServiceGrpc.class) {
         if ((getSaveChambreMethod = HotelServiceGrpc.getSaveChambreMethod) == null) {
           HotelServiceGrpc.getSaveChambreMethod = getSaveChambreMethod = 
-              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.ChambreInput, org.example.projetglobal.stubs.Hotel.Chambre>newBuilder()
+              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.ChambreRequest, org.example.projetglobal.stubs.Hotel.Chambre>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "HotelService", "saveChambre"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.projetglobal.stubs.Hotel.ChambreInput.getDefaultInstance()))
+                  org.example.projetglobal.stubs.Hotel.ChambreRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.example.projetglobal.stubs.Hotel.Chambre.getDefaultInstance()))
                   .setSchemaDescriptor(new HotelServiceMethodDescriptorSupplier("saveChambre"))
@@ -284,21 +284,21 @@ public final class HotelServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty,
-      org.example.projetglobal.stubs.Hotel.UtilisateurList> getAllUtilisateursMethod;
+      org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse> getAllUtilisateursMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "allUtilisateurs",
       requestType = org.example.projetglobal.stubs.Hotel.Empty.class,
-      responseType = org.example.projetglobal.stubs.Hotel.UtilisateurList.class,
+      responseType = org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty,
-      org.example.projetglobal.stubs.Hotel.UtilisateurList> getAllUtilisateursMethod() {
-    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.UtilisateurList> getAllUtilisateursMethod;
+      org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse> getAllUtilisateursMethod() {
+    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse> getAllUtilisateursMethod;
     if ((getAllUtilisateursMethod = HotelServiceGrpc.getAllUtilisateursMethod) == null) {
       synchronized (HotelServiceGrpc.class) {
         if ((getAllUtilisateursMethod = HotelServiceGrpc.getAllUtilisateursMethod) == null) {
           HotelServiceGrpc.getAllUtilisateursMethod = getAllUtilisateursMethod = 
-              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.UtilisateurList>newBuilder()
+              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "HotelService", "allUtilisateurs"))
@@ -306,7 +306,7 @@ public final class HotelServiceGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.example.projetglobal.stubs.Hotel.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.projetglobal.stubs.Hotel.UtilisateurList.getDefaultInstance()))
+                  org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new HotelServiceMethodDescriptorSupplier("allUtilisateurs"))
                   .build();
           }
@@ -347,28 +347,28 @@ public final class HotelServiceGrpc {
      return getUtilisateurByIdMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.UtilisateurInput,
+  private static volatile io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.UtilisateurRequest,
       org.example.projetglobal.stubs.Hotel.Utilisateur> getSaveUtilisateurMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "saveUtilisateur",
-      requestType = org.example.projetglobal.stubs.Hotel.UtilisateurInput.class,
+      requestType = org.example.projetglobal.stubs.Hotel.UtilisateurRequest.class,
       responseType = org.example.projetglobal.stubs.Hotel.Utilisateur.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.UtilisateurInput,
+  public static io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.UtilisateurRequest,
       org.example.projetglobal.stubs.Hotel.Utilisateur> getSaveUtilisateurMethod() {
-    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.UtilisateurInput, org.example.projetglobal.stubs.Hotel.Utilisateur> getSaveUtilisateurMethod;
+    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.UtilisateurRequest, org.example.projetglobal.stubs.Hotel.Utilisateur> getSaveUtilisateurMethod;
     if ((getSaveUtilisateurMethod = HotelServiceGrpc.getSaveUtilisateurMethod) == null) {
       synchronized (HotelServiceGrpc.class) {
         if ((getSaveUtilisateurMethod = HotelServiceGrpc.getSaveUtilisateurMethod) == null) {
           HotelServiceGrpc.getSaveUtilisateurMethod = getSaveUtilisateurMethod = 
-              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.UtilisateurInput, org.example.projetglobal.stubs.Hotel.Utilisateur>newBuilder()
+              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.UtilisateurRequest, org.example.projetglobal.stubs.Hotel.Utilisateur>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "HotelService", "saveUtilisateur"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.projetglobal.stubs.Hotel.UtilisateurInput.getDefaultInstance()))
+                  org.example.projetglobal.stubs.Hotel.UtilisateurRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.example.projetglobal.stubs.Hotel.Utilisateur.getDefaultInstance()))
                   .setSchemaDescriptor(new HotelServiceMethodDescriptorSupplier("saveUtilisateur"))
@@ -412,21 +412,21 @@ public final class HotelServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty,
-      org.example.projetglobal.stubs.Hotel.ReservationList> getAllReservationsMethod;
+      org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse> getAllReservationsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "allReservations",
       requestType = org.example.projetglobal.stubs.Hotel.Empty.class,
-      responseType = org.example.projetglobal.stubs.Hotel.ReservationList.class,
+      responseType = org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty,
-      org.example.projetglobal.stubs.Hotel.ReservationList> getAllReservationsMethod() {
-    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.ReservationList> getAllReservationsMethod;
+      org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse> getAllReservationsMethod() {
+    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse> getAllReservationsMethod;
     if ((getAllReservationsMethod = HotelServiceGrpc.getAllReservationsMethod) == null) {
       synchronized (HotelServiceGrpc.class) {
         if ((getAllReservationsMethod = HotelServiceGrpc.getAllReservationsMethod) == null) {
           HotelServiceGrpc.getAllReservationsMethod = getAllReservationsMethod = 
-              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.ReservationList>newBuilder()
+              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.Empty, org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "HotelService", "allReservations"))
@@ -434,7 +434,7 @@ public final class HotelServiceGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.example.projetglobal.stubs.Hotel.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.projetglobal.stubs.Hotel.ReservationList.getDefaultInstance()))
+                  org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new HotelServiceMethodDescriptorSupplier("allReservations"))
                   .build();
           }
@@ -475,28 +475,28 @@ public final class HotelServiceGrpc {
      return getReservationByIdMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ReservationInput,
+  private static volatile io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ReservationRequest,
       org.example.projetglobal.stubs.Hotel.Reservation> getSaveReservationMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "saveReservation",
-      requestType = org.example.projetglobal.stubs.Hotel.ReservationInput.class,
+      requestType = org.example.projetglobal.stubs.Hotel.ReservationRequest.class,
       responseType = org.example.projetglobal.stubs.Hotel.Reservation.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ReservationInput,
+  public static io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ReservationRequest,
       org.example.projetglobal.stubs.Hotel.Reservation> getSaveReservationMethod() {
-    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ReservationInput, org.example.projetglobal.stubs.Hotel.Reservation> getSaveReservationMethod;
+    io.grpc.MethodDescriptor<org.example.projetglobal.stubs.Hotel.ReservationRequest, org.example.projetglobal.stubs.Hotel.Reservation> getSaveReservationMethod;
     if ((getSaveReservationMethod = HotelServiceGrpc.getSaveReservationMethod) == null) {
       synchronized (HotelServiceGrpc.class) {
         if ((getSaveReservationMethod = HotelServiceGrpc.getSaveReservationMethod) == null) {
           HotelServiceGrpc.getSaveReservationMethod = getSaveReservationMethod = 
-              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.ReservationInput, org.example.projetglobal.stubs.Hotel.Reservation>newBuilder()
+              io.grpc.MethodDescriptor.<org.example.projetglobal.stubs.Hotel.ReservationRequest, org.example.projetglobal.stubs.Hotel.Reservation>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "HotelService", "saveReservation"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.example.projetglobal.stubs.Hotel.ReservationInput.getDefaultInstance()))
+                  org.example.projetglobal.stubs.Hotel.ReservationRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.example.projetglobal.stubs.Hotel.Reservation.getDefaultInstance()))
                   .setSchemaDescriptor(new HotelServiceMethodDescriptorSupplier("saveReservation"))
@@ -599,9 +599,12 @@ public final class HotelServiceGrpc {
   public static abstract class HotelServiceImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     * Clients services
+     * </pre>
      */
     public void allClients(org.example.projetglobal.stubs.Hotel.Empty request,
-        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.ClientList> responseObserver) {
+        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.GetAllClientsResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getAllClientsMethod(), responseObserver);
     }
 
@@ -614,7 +617,7 @@ public final class HotelServiceGrpc {
 
     /**
      */
-    public void saveClient(org.example.projetglobal.stubs.Hotel.ClientInput request,
+    public void saveClient(org.example.projetglobal.stubs.Hotel.ClientRequest request,
         io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Client> responseObserver) {
       asyncUnimplementedUnaryCall(getSaveClientMethod(), responseObserver);
     }
@@ -627,9 +630,12 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Chambres services
+     * </pre>
      */
     public void allChambres(org.example.projetglobal.stubs.Hotel.Empty request,
-        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.ChambreList> responseObserver) {
+        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.GetAllChambresResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getAllChambresMethod(), responseObserver);
     }
 
@@ -642,7 +648,7 @@ public final class HotelServiceGrpc {
 
     /**
      */
-    public void saveChambre(org.example.projetglobal.stubs.Hotel.ChambreInput request,
+    public void saveChambre(org.example.projetglobal.stubs.Hotel.ChambreRequest request,
         io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Chambre> responseObserver) {
       asyncUnimplementedUnaryCall(getSaveChambreMethod(), responseObserver);
     }
@@ -655,9 +661,12 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Utilisateurs services
+     * </pre>
      */
     public void allUtilisateurs(org.example.projetglobal.stubs.Hotel.Empty request,
-        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.UtilisateurList> responseObserver) {
+        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getAllUtilisateursMethod(), responseObserver);
     }
 
@@ -670,7 +679,7 @@ public final class HotelServiceGrpc {
 
     /**
      */
-    public void saveUtilisateur(org.example.projetglobal.stubs.Hotel.UtilisateurInput request,
+    public void saveUtilisateur(org.example.projetglobal.stubs.Hotel.UtilisateurRequest request,
         io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Utilisateur> responseObserver) {
       asyncUnimplementedUnaryCall(getSaveUtilisateurMethod(), responseObserver);
     }
@@ -683,9 +692,12 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Reservations services
+     * </pre>
      */
     public void allReservations(org.example.projetglobal.stubs.Hotel.Empty request,
-        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.ReservationList> responseObserver) {
+        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getAllReservationsMethod(), responseObserver);
     }
 
@@ -698,7 +710,7 @@ public final class HotelServiceGrpc {
 
     /**
      */
-    public void saveReservation(org.example.projetglobal.stubs.Hotel.ReservationInput request,
+    public void saveReservation(org.example.projetglobal.stubs.Hotel.ReservationRequest request,
         io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Reservation> responseObserver) {
       asyncUnimplementedUnaryCall(getSaveReservationMethod(), responseObserver);
     }
@@ -724,7 +736,7 @@ public final class HotelServiceGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 org.example.projetglobal.stubs.Hotel.Empty,
-                org.example.projetglobal.stubs.Hotel.ClientList>(
+                org.example.projetglobal.stubs.Hotel.GetAllClientsResponse>(
                   this, METHODID_ALL_CLIENTS)))
           .addMethod(
             getClientByIdMethod(),
@@ -737,7 +749,7 @@ public final class HotelServiceGrpc {
             getSaveClientMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.example.projetglobal.stubs.Hotel.ClientInput,
+                org.example.projetglobal.stubs.Hotel.ClientRequest,
                 org.example.projetglobal.stubs.Hotel.Client>(
                   this, METHODID_SAVE_CLIENT)))
           .addMethod(
@@ -752,7 +764,7 @@ public final class HotelServiceGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 org.example.projetglobal.stubs.Hotel.Empty,
-                org.example.projetglobal.stubs.Hotel.ChambreList>(
+                org.example.projetglobal.stubs.Hotel.GetAllChambresResponse>(
                   this, METHODID_ALL_CHAMBRES)))
           .addMethod(
             getChambreByIdMethod(),
@@ -765,7 +777,7 @@ public final class HotelServiceGrpc {
             getSaveChambreMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.example.projetglobal.stubs.Hotel.ChambreInput,
+                org.example.projetglobal.stubs.Hotel.ChambreRequest,
                 org.example.projetglobal.stubs.Hotel.Chambre>(
                   this, METHODID_SAVE_CHAMBRE)))
           .addMethod(
@@ -780,7 +792,7 @@ public final class HotelServiceGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 org.example.projetglobal.stubs.Hotel.Empty,
-                org.example.projetglobal.stubs.Hotel.UtilisateurList>(
+                org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse>(
                   this, METHODID_ALL_UTILISATEURS)))
           .addMethod(
             getUtilisateurByIdMethod(),
@@ -793,7 +805,7 @@ public final class HotelServiceGrpc {
             getSaveUtilisateurMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.example.projetglobal.stubs.Hotel.UtilisateurInput,
+                org.example.projetglobal.stubs.Hotel.UtilisateurRequest,
                 org.example.projetglobal.stubs.Hotel.Utilisateur>(
                   this, METHODID_SAVE_UTILISATEUR)))
           .addMethod(
@@ -808,7 +820,7 @@ public final class HotelServiceGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 org.example.projetglobal.stubs.Hotel.Empty,
-                org.example.projetglobal.stubs.Hotel.ReservationList>(
+                org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse>(
                   this, METHODID_ALL_RESERVATIONS)))
           .addMethod(
             getReservationByIdMethod(),
@@ -821,7 +833,7 @@ public final class HotelServiceGrpc {
             getSaveReservationMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.example.projetglobal.stubs.Hotel.ReservationInput,
+                org.example.projetglobal.stubs.Hotel.ReservationRequest,
                 org.example.projetglobal.stubs.Hotel.Reservation>(
                   this, METHODID_SAVE_RESERVATION)))
           .addMethod(
@@ -861,9 +873,12 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Clients services
+     * </pre>
      */
     public void allClients(org.example.projetglobal.stubs.Hotel.Empty request,
-        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.ClientList> responseObserver) {
+        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.GetAllClientsResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getAllClientsMethod(), getCallOptions()), request, responseObserver);
     }
@@ -878,7 +893,7 @@ public final class HotelServiceGrpc {
 
     /**
      */
-    public void saveClient(org.example.projetglobal.stubs.Hotel.ClientInput request,
+    public void saveClient(org.example.projetglobal.stubs.Hotel.ClientRequest request,
         io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Client> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getSaveClientMethod(), getCallOptions()), request, responseObserver);
@@ -893,9 +908,12 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Chambres services
+     * </pre>
      */
     public void allChambres(org.example.projetglobal.stubs.Hotel.Empty request,
-        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.ChambreList> responseObserver) {
+        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.GetAllChambresResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getAllChambresMethod(), getCallOptions()), request, responseObserver);
     }
@@ -910,7 +928,7 @@ public final class HotelServiceGrpc {
 
     /**
      */
-    public void saveChambre(org.example.projetglobal.stubs.Hotel.ChambreInput request,
+    public void saveChambre(org.example.projetglobal.stubs.Hotel.ChambreRequest request,
         io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Chambre> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getSaveChambreMethod(), getCallOptions()), request, responseObserver);
@@ -925,9 +943,12 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Utilisateurs services
+     * </pre>
      */
     public void allUtilisateurs(org.example.projetglobal.stubs.Hotel.Empty request,
-        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.UtilisateurList> responseObserver) {
+        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getAllUtilisateursMethod(), getCallOptions()), request, responseObserver);
     }
@@ -942,7 +963,7 @@ public final class HotelServiceGrpc {
 
     /**
      */
-    public void saveUtilisateur(org.example.projetglobal.stubs.Hotel.UtilisateurInput request,
+    public void saveUtilisateur(org.example.projetglobal.stubs.Hotel.UtilisateurRequest request,
         io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Utilisateur> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getSaveUtilisateurMethod(), getCallOptions()), request, responseObserver);
@@ -957,9 +978,12 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Reservations services
+     * </pre>
      */
     public void allReservations(org.example.projetglobal.stubs.Hotel.Empty request,
-        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.ReservationList> responseObserver) {
+        io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getAllReservationsMethod(), getCallOptions()), request, responseObserver);
     }
@@ -974,7 +998,7 @@ public final class HotelServiceGrpc {
 
     /**
      */
-    public void saveReservation(org.example.projetglobal.stubs.Hotel.ReservationInput request,
+    public void saveReservation(org.example.projetglobal.stubs.Hotel.ReservationRequest request,
         io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Reservation> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getSaveReservationMethod(), getCallOptions()), request, responseObserver);
@@ -1016,8 +1040,11 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Clients services
+     * </pre>
      */
-    public org.example.projetglobal.stubs.Hotel.ClientList allClients(org.example.projetglobal.stubs.Hotel.Empty request) {
+    public org.example.projetglobal.stubs.Hotel.GetAllClientsResponse allClients(org.example.projetglobal.stubs.Hotel.Empty request) {
       return blockingUnaryCall(
           getChannel(), getAllClientsMethod(), getCallOptions(), request);
     }
@@ -1031,7 +1058,7 @@ public final class HotelServiceGrpc {
 
     /**
      */
-    public org.example.projetglobal.stubs.Hotel.Client saveClient(org.example.projetglobal.stubs.Hotel.ClientInput request) {
+    public org.example.projetglobal.stubs.Hotel.Client saveClient(org.example.projetglobal.stubs.Hotel.ClientRequest request) {
       return blockingUnaryCall(
           getChannel(), getSaveClientMethod(), getCallOptions(), request);
     }
@@ -1044,8 +1071,11 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Chambres services
+     * </pre>
      */
-    public org.example.projetglobal.stubs.Hotel.ChambreList allChambres(org.example.projetglobal.stubs.Hotel.Empty request) {
+    public org.example.projetglobal.stubs.Hotel.GetAllChambresResponse allChambres(org.example.projetglobal.stubs.Hotel.Empty request) {
       return blockingUnaryCall(
           getChannel(), getAllChambresMethod(), getCallOptions(), request);
     }
@@ -1059,7 +1089,7 @@ public final class HotelServiceGrpc {
 
     /**
      */
-    public org.example.projetglobal.stubs.Hotel.Chambre saveChambre(org.example.projetglobal.stubs.Hotel.ChambreInput request) {
+    public org.example.projetglobal.stubs.Hotel.Chambre saveChambre(org.example.projetglobal.stubs.Hotel.ChambreRequest request) {
       return blockingUnaryCall(
           getChannel(), getSaveChambreMethod(), getCallOptions(), request);
     }
@@ -1072,8 +1102,11 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Utilisateurs services
+     * </pre>
      */
-    public org.example.projetglobal.stubs.Hotel.UtilisateurList allUtilisateurs(org.example.projetglobal.stubs.Hotel.Empty request) {
+    public org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse allUtilisateurs(org.example.projetglobal.stubs.Hotel.Empty request) {
       return blockingUnaryCall(
           getChannel(), getAllUtilisateursMethod(), getCallOptions(), request);
     }
@@ -1087,7 +1120,7 @@ public final class HotelServiceGrpc {
 
     /**
      */
-    public org.example.projetglobal.stubs.Hotel.Utilisateur saveUtilisateur(org.example.projetglobal.stubs.Hotel.UtilisateurInput request) {
+    public org.example.projetglobal.stubs.Hotel.Utilisateur saveUtilisateur(org.example.projetglobal.stubs.Hotel.UtilisateurRequest request) {
       return blockingUnaryCall(
           getChannel(), getSaveUtilisateurMethod(), getCallOptions(), request);
     }
@@ -1100,8 +1133,11 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Reservations services
+     * </pre>
      */
-    public org.example.projetglobal.stubs.Hotel.ReservationList allReservations(org.example.projetglobal.stubs.Hotel.Empty request) {
+    public org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse allReservations(org.example.projetglobal.stubs.Hotel.Empty request) {
       return blockingUnaryCall(
           getChannel(), getAllReservationsMethod(), getCallOptions(), request);
     }
@@ -1115,7 +1151,7 @@ public final class HotelServiceGrpc {
 
     /**
      */
-    public org.example.projetglobal.stubs.Hotel.Reservation saveReservation(org.example.projetglobal.stubs.Hotel.ReservationInput request) {
+    public org.example.projetglobal.stubs.Hotel.Reservation saveReservation(org.example.projetglobal.stubs.Hotel.ReservationRequest request) {
       return blockingUnaryCall(
           getChannel(), getSaveReservationMethod(), getCallOptions(), request);
     }
@@ -1154,8 +1190,11 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Clients services
+     * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.example.projetglobal.stubs.Hotel.ClientList> allClients(
+    public com.google.common.util.concurrent.ListenableFuture<org.example.projetglobal.stubs.Hotel.GetAllClientsResponse> allClients(
         org.example.projetglobal.stubs.Hotel.Empty request) {
       return futureUnaryCall(
           getChannel().newCall(getAllClientsMethod(), getCallOptions()), request);
@@ -1172,7 +1211,7 @@ public final class HotelServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.example.projetglobal.stubs.Hotel.Client> saveClient(
-        org.example.projetglobal.stubs.Hotel.ClientInput request) {
+        org.example.projetglobal.stubs.Hotel.ClientRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getSaveClientMethod(), getCallOptions()), request);
     }
@@ -1186,8 +1225,11 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Chambres services
+     * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.example.projetglobal.stubs.Hotel.ChambreList> allChambres(
+    public com.google.common.util.concurrent.ListenableFuture<org.example.projetglobal.stubs.Hotel.GetAllChambresResponse> allChambres(
         org.example.projetglobal.stubs.Hotel.Empty request) {
       return futureUnaryCall(
           getChannel().newCall(getAllChambresMethod(), getCallOptions()), request);
@@ -1204,7 +1246,7 @@ public final class HotelServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.example.projetglobal.stubs.Hotel.Chambre> saveChambre(
-        org.example.projetglobal.stubs.Hotel.ChambreInput request) {
+        org.example.projetglobal.stubs.Hotel.ChambreRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getSaveChambreMethod(), getCallOptions()), request);
     }
@@ -1218,8 +1260,11 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Utilisateurs services
+     * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.example.projetglobal.stubs.Hotel.UtilisateurList> allUtilisateurs(
+    public com.google.common.util.concurrent.ListenableFuture<org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse> allUtilisateurs(
         org.example.projetglobal.stubs.Hotel.Empty request) {
       return futureUnaryCall(
           getChannel().newCall(getAllUtilisateursMethod(), getCallOptions()), request);
@@ -1236,7 +1281,7 @@ public final class HotelServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.example.projetglobal.stubs.Hotel.Utilisateur> saveUtilisateur(
-        org.example.projetglobal.stubs.Hotel.UtilisateurInput request) {
+        org.example.projetglobal.stubs.Hotel.UtilisateurRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getSaveUtilisateurMethod(), getCallOptions()), request);
     }
@@ -1250,8 +1295,11 @@ public final class HotelServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Reservations services
+     * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.example.projetglobal.stubs.Hotel.ReservationList> allReservations(
+    public com.google.common.util.concurrent.ListenableFuture<org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse> allReservations(
         org.example.projetglobal.stubs.Hotel.Empty request) {
       return futureUnaryCall(
           getChannel().newCall(getAllReservationsMethod(), getCallOptions()), request);
@@ -1268,7 +1316,7 @@ public final class HotelServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<org.example.projetglobal.stubs.Hotel.Reservation> saveReservation(
-        org.example.projetglobal.stubs.Hotel.ReservationInput request) {
+        org.example.projetglobal.stubs.Hotel.ReservationRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getSaveReservationMethod(), getCallOptions()), request);
     }
@@ -1327,14 +1375,14 @@ public final class HotelServiceGrpc {
       switch (methodId) {
         case METHODID_ALL_CLIENTS:
           serviceImpl.allClients((org.example.projetglobal.stubs.Hotel.Empty) request,
-              (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.ClientList>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.GetAllClientsResponse>) responseObserver);
           break;
         case METHODID_CLIENT_BY_ID:
           serviceImpl.clientById((org.example.projetglobal.stubs.Hotel.ClientIdRequest) request,
               (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Client>) responseObserver);
           break;
         case METHODID_SAVE_CLIENT:
-          serviceImpl.saveClient((org.example.projetglobal.stubs.Hotel.ClientInput) request,
+          serviceImpl.saveClient((org.example.projetglobal.stubs.Hotel.ClientRequest) request,
               (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Client>) responseObserver);
           break;
         case METHODID_DELETE_CLIENT:
@@ -1343,14 +1391,14 @@ public final class HotelServiceGrpc {
           break;
         case METHODID_ALL_CHAMBRES:
           serviceImpl.allChambres((org.example.projetglobal.stubs.Hotel.Empty) request,
-              (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.ChambreList>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.GetAllChambresResponse>) responseObserver);
           break;
         case METHODID_CHAMBRE_BY_ID:
           serviceImpl.chambreById((org.example.projetglobal.stubs.Hotel.ChambreIdRequest) request,
               (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Chambre>) responseObserver);
           break;
         case METHODID_SAVE_CHAMBRE:
-          serviceImpl.saveChambre((org.example.projetglobal.stubs.Hotel.ChambreInput) request,
+          serviceImpl.saveChambre((org.example.projetglobal.stubs.Hotel.ChambreRequest) request,
               (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Chambre>) responseObserver);
           break;
         case METHODID_DELETE_CHAMBRE:
@@ -1359,14 +1407,14 @@ public final class HotelServiceGrpc {
           break;
         case METHODID_ALL_UTILISATEURS:
           serviceImpl.allUtilisateurs((org.example.projetglobal.stubs.Hotel.Empty) request,
-              (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.UtilisateurList>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse>) responseObserver);
           break;
         case METHODID_UTILISATEUR_BY_ID:
           serviceImpl.utilisateurById((org.example.projetglobal.stubs.Hotel.UtilisateurIdRequest) request,
               (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Utilisateur>) responseObserver);
           break;
         case METHODID_SAVE_UTILISATEUR:
-          serviceImpl.saveUtilisateur((org.example.projetglobal.stubs.Hotel.UtilisateurInput) request,
+          serviceImpl.saveUtilisateur((org.example.projetglobal.stubs.Hotel.UtilisateurRequest) request,
               (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Utilisateur>) responseObserver);
           break;
         case METHODID_DELETE_UTILISATEUR:
@@ -1375,14 +1423,14 @@ public final class HotelServiceGrpc {
           break;
         case METHODID_ALL_RESERVATIONS:
           serviceImpl.allReservations((org.example.projetglobal.stubs.Hotel.Empty) request,
-              (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.ReservationList>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse>) responseObserver);
           break;
         case METHODID_RESERVATION_BY_ID:
           serviceImpl.reservationById((org.example.projetglobal.stubs.Hotel.ReservationIdRequest) request,
               (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Reservation>) responseObserver);
           break;
         case METHODID_SAVE_RESERVATION:
-          serviceImpl.saveReservation((org.example.projetglobal.stubs.Hotel.ReservationInput) request,
+          serviceImpl.saveReservation((org.example.projetglobal.stubs.Hotel.ReservationRequest) request,
               (io.grpc.stub.StreamObserver<org.example.projetglobal.stubs.Hotel.Reservation>) responseObserver);
           break;
         case METHODID_DELETE_RESERVATION:

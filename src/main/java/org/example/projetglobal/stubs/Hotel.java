@@ -19,16 +19,10 @@ public final class Hotel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    long getId();
 
     /**
      * <code>string nom = 2;</code>
@@ -91,7 +85,6 @@ public final class Hotel {
       super(builder);
     }
     private Client() {
-      id_ = "";
       nom_ = "";
       prenom_ = "";
       email_ = "";
@@ -128,10 +121,9 @@ public final class Hotel {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              id_ = s;
+              id_ = input.readInt64();
               break;
             }
             case 18: {
@@ -191,39 +183,13 @@ public final class Hotel {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    private long id_;
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getId() {
+      return id_;
     }
 
     public static final int NOM_FIELD_NUMBER = 2;
@@ -384,8 +350,8 @@ public final class Hotel {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
       }
       if (!getNomBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nom_);
@@ -408,8 +374,9 @@ public final class Hotel {
       if (size != -1) return size;
 
       size = 0;
-      if (!getIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
       }
       if (!getNomBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nom_);
@@ -438,8 +405,8 @@ public final class Hotel {
       }
       org.example.projetglobal.stubs.Hotel.Client other = (org.example.projetglobal.stubs.Hotel.Client) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getId()
+          != other.getId()) return false;
       if (!getNom()
           .equals(other.getNom())) return false;
       if (!getPrenom()
@@ -460,7 +427,8 @@ public final class Hotel {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       hash = (37 * hash) + NOM_FIELD_NUMBER;
       hash = (53 * hash) + getNom().hashCode();
       hash = (37 * hash) + PRENOM_FIELD_NUMBER;
@@ -602,7 +570,7 @@ public final class Hotel {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = "";
+        id_ = 0L;
 
         nom_ = "";
 
@@ -691,9 +659,8 @@ public final class Hotel {
 
       public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.Client other) {
         if (other == org.example.projetglobal.stubs.Hotel.Client.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          onChanged();
+        if (other.getId() != 0L) {
+          setId(other.getId());
         }
         if (!other.getNom().isEmpty()) {
           nom_ = other.nom_;
@@ -740,78 +707,32 @@ public final class Hotel {
         return this;
       }
 
-      private java.lang.Object id_ = "";
+      private long id_ ;
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getId() {
+        return id_;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setId(long value) {
+        
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
         
-        id_ = getDefaultInstance().getId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        id_ = value;
+        id_ = 0L;
         onChanged();
         return this;
       }
@@ -1177,16 +1098,10 @@ public final class Hotel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    long getId();
 
     /**
      * <code>string type = 2;</code>
@@ -1225,7 +1140,6 @@ public final class Hotel {
       super(builder);
     }
     private Chambre() {
-      id_ = "";
       type_ = "";
     }
 
@@ -1259,10 +1173,9 @@ public final class Hotel {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              id_ = s;
+              id_ = input.readInt64();
               break;
             }
             case 18: {
@@ -1314,39 +1227,13 @@ public final class Hotel {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    private long id_;
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getId() {
+      return id_;
     }
 
     public static final int TYPE_FIELD_NUMBER = 2;
@@ -1419,8 +1306,8 @@ public final class Hotel {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
       }
       if (!getTypeBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, type_);
@@ -1440,8 +1327,9 @@ public final class Hotel {
       if (size != -1) return size;
 
       size = 0;
-      if (!getIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
       }
       if (!getTypeBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, type_);
@@ -1469,8 +1357,8 @@ public final class Hotel {
       }
       org.example.projetglobal.stubs.Hotel.Chambre other = (org.example.projetglobal.stubs.Hotel.Chambre) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getId()
+          != other.getId()) return false;
       if (!getType()
           .equals(other.getType())) return false;
       if (java.lang.Float.floatToIntBits(getPrix())
@@ -1490,7 +1378,8 @@ public final class Hotel {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + getType().hashCode();
       hash = (37 * hash) + PRIX_FIELD_NUMBER;
@@ -1632,7 +1521,7 @@ public final class Hotel {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = "";
+        id_ = 0L;
 
         type_ = "";
 
@@ -1718,9 +1607,8 @@ public final class Hotel {
 
       public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.Chambre other) {
         if (other == org.example.projetglobal.stubs.Hotel.Chambre.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          onChanged();
+        if (other.getId() != 0L) {
+          setId(other.getId());
         }
         if (!other.getType().isEmpty()) {
           type_ = other.type_;
@@ -1761,78 +1649,32 @@ public final class Hotel {
         return this;
       }
 
-      private java.lang.Object id_ = "";
+      private long id_ ;
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getId() {
+        return id_;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setId(long value) {
+        
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
         
-        id_ = getDefaultInstance().getId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        id_ = value;
+        id_ = 0L;
         onChanged();
         return this;
       }
@@ -2030,16 +1872,10 @@ public final class Hotel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    long getId();
 
     /**
      * <code>.Client client = 2;</code>
@@ -2120,7 +1956,6 @@ public final class Hotel {
       super(builder);
     }
     private Reservation() {
-      id_ = "";
       dateDebut_ = "";
       dateFin_ = "";
       preferences_ = "";
@@ -2156,10 +1991,9 @@ public final class Hotel {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              id_ = s;
+              id_ = input.readInt64();
               break;
             }
             case 18: {
@@ -2239,39 +2073,13 @@ public final class Hotel {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    private long id_;
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getId() {
+      return id_;
     }
 
     public static final int CLIENT_FIELD_NUMBER = 2;
@@ -2442,8 +2250,8 @@ public final class Hotel {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
       }
       if (client_ != null) {
         output.writeMessage(2, getClient());
@@ -2469,8 +2277,9 @@ public final class Hotel {
       if (size != -1) return size;
 
       size = 0;
-      if (!getIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
       }
       if (client_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -2504,8 +2313,8 @@ public final class Hotel {
       }
       org.example.projetglobal.stubs.Hotel.Reservation other = (org.example.projetglobal.stubs.Hotel.Reservation) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getId()
+          != other.getId()) return false;
       if (hasClient() != other.hasClient()) return false;
       if (hasClient()) {
         if (!getClient()
@@ -2534,7 +2343,8 @@ public final class Hotel {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       if (hasClient()) {
         hash = (37 * hash) + CLIENT_FIELD_NUMBER;
         hash = (53 * hash) + getClient().hashCode();
@@ -2682,7 +2492,7 @@ public final class Hotel {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = "";
+        id_ = 0L;
 
         if (clientBuilder_ == null) {
           client_ = null;
@@ -2790,9 +2600,8 @@ public final class Hotel {
 
       public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.Reservation other) {
         if (other == org.example.projetglobal.stubs.Hotel.Reservation.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          onChanged();
+        if (other.getId() != 0L) {
+          setId(other.getId());
         }
         if (other.hasClient()) {
           mergeClient(other.getClient());
@@ -2841,78 +2650,32 @@ public final class Hotel {
         return this;
       }
 
-      private java.lang.Object id_ = "";
+      private long id_ ;
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getId() {
+        return id_;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setId(long value) {
+        
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
         
-        id_ = getDefaultInstance().getId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        id_ = value;
+        id_ = 0L;
         onChanged();
         return this;
       }
@@ -3440,16 +3203,10 @@ public final class Hotel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    long getId();
 
     /**
      * <code>string nomUtilisateur = 2;</code>
@@ -3500,7 +3257,6 @@ public final class Hotel {
       super(builder);
     }
     private Utilisateur() {
-      id_ = "";
       nomUtilisateur_ = "";
       motDePasse_ = "";
       role_ = "";
@@ -3536,10 +3292,9 @@ public final class Hotel {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              id_ = s;
+              id_ = input.readInt64();
               break;
             }
             case 18: {
@@ -3593,39 +3348,13 @@ public final class Hotel {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    private long id_;
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getId() {
+      return id_;
     }
 
     public static final int NOMUTILISATEUR_FIELD_NUMBER = 2;
@@ -3750,8 +3479,8 @@ public final class Hotel {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
       }
       if (!getNomUtilisateurBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nomUtilisateur_);
@@ -3771,8 +3500,9 @@ public final class Hotel {
       if (size != -1) return size;
 
       size = 0;
-      if (!getIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
       }
       if (!getNomUtilisateurBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nomUtilisateur_);
@@ -3798,8 +3528,8 @@ public final class Hotel {
       }
       org.example.projetglobal.stubs.Hotel.Utilisateur other = (org.example.projetglobal.stubs.Hotel.Utilisateur) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getId()
+          != other.getId()) return false;
       if (!getNomUtilisateur()
           .equals(other.getNomUtilisateur())) return false;
       if (!getMotDePasse()
@@ -3818,7 +3548,8 @@ public final class Hotel {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       hash = (37 * hash) + NOMUTILISATEUR_FIELD_NUMBER;
       hash = (53 * hash) + getNomUtilisateur().hashCode();
       hash = (37 * hash) + MOTDEPASSE_FIELD_NUMBER;
@@ -3958,7 +3689,7 @@ public final class Hotel {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = "";
+        id_ = 0L;
 
         nomUtilisateur_ = "";
 
@@ -4044,9 +3775,8 @@ public final class Hotel {
 
       public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.Utilisateur other) {
         if (other == org.example.projetglobal.stubs.Hotel.Utilisateur.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          onChanged();
+        if (other.getId() != 0L) {
+          setId(other.getId());
         }
         if (!other.getNomUtilisateur().isEmpty()) {
           nomUtilisateur_ = other.nomUtilisateur_;
@@ -4089,78 +3819,32 @@ public final class Hotel {
         return this;
       }
 
-      private java.lang.Object id_ = "";
+      private long id_ ;
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getId() {
+        return id_;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setId(long value) {
+        
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
         
-        id_ = getDefaultInstance().getId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        id_ = value;
+        id_ = 0L;
         onChanged();
         return this;
       }
@@ -4445,8 +4129,8 @@ public final class Hotel {
 
   }
 
-  public interface ClientInputOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ClientInput)
+  public interface ClientRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ClientRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -4498,18 +4182,18 @@ public final class Hotel {
         getTelephoneBytes();
   }
   /**
-   * Protobuf type {@code ClientInput}
+   * Protobuf type {@code ClientRequest}
    */
-  public  static final class ClientInput extends
+  public  static final class ClientRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ClientInput)
-      ClientInputOrBuilder {
+      // @@protoc_insertion_point(message_implements:ClientRequest)
+      ClientRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ClientInput.newBuilder() to construct.
-    private ClientInput(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ClientRequest.newBuilder() to construct.
+    private ClientRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ClientInput() {
+    private ClientRequest() {
       nom_ = "";
       prenom_ = "";
       email_ = "";
@@ -4520,7 +4204,7 @@ public final class Hotel {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ClientInput();
+      return new ClientRequest();
     }
 
     @java.lang.Override
@@ -4528,7 +4212,7 @@ public final class Hotel {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ClientInput(
+    private ClientRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4591,15 +4275,15 @@ public final class Hotel {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_ClientInput_descriptor;
+      return org.example.projetglobal.stubs.Hotel.internal_static_ClientRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_ClientInput_fieldAccessorTable
+      return org.example.projetglobal.stubs.Hotel.internal_static_ClientRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.example.projetglobal.stubs.Hotel.ClientInput.class, org.example.projetglobal.stubs.Hotel.ClientInput.Builder.class);
+              org.example.projetglobal.stubs.Hotel.ClientRequest.class, org.example.projetglobal.stubs.Hotel.ClientRequest.Builder.class);
     }
 
     public static final int NOM_FIELD_NUMBER = 1;
@@ -4803,10 +4487,10 @@ public final class Hotel {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.ClientInput)) {
+      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.ClientRequest)) {
         return super.equals(obj);
       }
-      org.example.projetglobal.stubs.Hotel.ClientInput other = (org.example.projetglobal.stubs.Hotel.ClientInput) obj;
+      org.example.projetglobal.stubs.Hotel.ClientRequest other = (org.example.projetglobal.stubs.Hotel.ClientRequest) obj;
 
       if (!getNom()
           .equals(other.getNom())) return false;
@@ -4840,69 +4524,69 @@ public final class Hotel {
       return hash;
     }
 
-    public static org.example.projetglobal.stubs.Hotel.ClientInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ClientRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ClientRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ClientRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ClientRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientInput parseFrom(byte[] data)
+    public static org.example.projetglobal.stubs.Hotel.ClientRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ClientRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientInput parseFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.ClientRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ClientRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientInput parseDelimitedFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.ClientRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientInput parseDelimitedFrom(
+    public static org.example.projetglobal.stubs.Hotel.ClientRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ClientRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ClientRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4915,7 +4599,7 @@ public final class Hotel {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.ClientInput prototype) {
+    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.ClientRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -4931,26 +4615,26 @@ public final class Hotel {
       return builder;
     }
     /**
-     * Protobuf type {@code ClientInput}
+     * Protobuf type {@code ClientRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ClientInput)
-        org.example.projetglobal.stubs.Hotel.ClientInputOrBuilder {
+        // @@protoc_insertion_point(builder_implements:ClientRequest)
+        org.example.projetglobal.stubs.Hotel.ClientRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ClientInput_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_ClientRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ClientInput_fieldAccessorTable
+        return org.example.projetglobal.stubs.Hotel.internal_static_ClientRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.example.projetglobal.stubs.Hotel.ClientInput.class, org.example.projetglobal.stubs.Hotel.ClientInput.Builder.class);
+                org.example.projetglobal.stubs.Hotel.ClientRequest.class, org.example.projetglobal.stubs.Hotel.ClientRequest.Builder.class);
       }
 
-      // Construct using org.example.projetglobal.stubs.Hotel.ClientInput.newBuilder()
+      // Construct using org.example.projetglobal.stubs.Hotel.ClientRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4982,17 +4666,17 @@ public final class Hotel {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ClientInput_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_ClientRequest_descriptor;
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ClientInput getDefaultInstanceForType() {
-        return org.example.projetglobal.stubs.Hotel.ClientInput.getDefaultInstance();
+      public org.example.projetglobal.stubs.Hotel.ClientRequest getDefaultInstanceForType() {
+        return org.example.projetglobal.stubs.Hotel.ClientRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ClientInput build() {
-        org.example.projetglobal.stubs.Hotel.ClientInput result = buildPartial();
+      public org.example.projetglobal.stubs.Hotel.ClientRequest build() {
+        org.example.projetglobal.stubs.Hotel.ClientRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -5000,8 +4684,8 @@ public final class Hotel {
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ClientInput buildPartial() {
-        org.example.projetglobal.stubs.Hotel.ClientInput result = new org.example.projetglobal.stubs.Hotel.ClientInput(this);
+      public org.example.projetglobal.stubs.Hotel.ClientRequest buildPartial() {
+        org.example.projetglobal.stubs.Hotel.ClientRequest result = new org.example.projetglobal.stubs.Hotel.ClientRequest(this);
         result.nom_ = nom_;
         result.prenom_ = prenom_;
         result.email_ = email_;
@@ -5044,16 +4728,16 @@ public final class Hotel {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.example.projetglobal.stubs.Hotel.ClientInput) {
-          return mergeFrom((org.example.projetglobal.stubs.Hotel.ClientInput)other);
+        if (other instanceof org.example.projetglobal.stubs.Hotel.ClientRequest) {
+          return mergeFrom((org.example.projetglobal.stubs.Hotel.ClientRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.ClientInput other) {
-        if (other == org.example.projetglobal.stubs.Hotel.ClientInput.getDefaultInstance()) return this;
+      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.ClientRequest other) {
+        if (other == org.example.projetglobal.stubs.Hotel.ClientRequest.getDefaultInstance()) return this;
         if (!other.getNom().isEmpty()) {
           nom_ = other.nom_;
           onChanged();
@@ -5085,11 +4769,11 @@ public final class Hotel {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.example.projetglobal.stubs.Hotel.ClientInput parsedMessage = null;
+        org.example.projetglobal.stubs.Hotel.ClientRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.example.projetglobal.stubs.Hotel.ClientInput) e.getUnfinishedMessage();
+          parsedMessage = (org.example.projetglobal.stubs.Hotel.ClientRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5415,48 +5099,48 @@ public final class Hotel {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ClientInput)
+      // @@protoc_insertion_point(builder_scope:ClientRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:ClientInput)
-    private static final org.example.projetglobal.stubs.Hotel.ClientInput DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:ClientRequest)
+    private static final org.example.projetglobal.stubs.Hotel.ClientRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.ClientInput();
+      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.ClientRequest();
     }
 
-    public static org.example.projetglobal.stubs.Hotel.ClientInput getDefaultInstance() {
+    public static org.example.projetglobal.stubs.Hotel.ClientRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ClientInput>
-        PARSER = new com.google.protobuf.AbstractParser<ClientInput>() {
+    private static final com.google.protobuf.Parser<ClientRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ClientRequest>() {
       @java.lang.Override
-      public ClientInput parsePartialFrom(
+      public ClientRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClientInput(input, extensionRegistry);
+        return new ClientRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ClientInput> parser() {
+    public static com.google.protobuf.Parser<ClientRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ClientInput> getParserForType() {
+    public com.google.protobuf.Parser<ClientRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public org.example.projetglobal.stubs.Hotel.ClientInput getDefaultInstanceForType() {
+    public org.example.projetglobal.stubs.Hotel.ClientRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface ChambreInputOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ChambreInput)
+  public interface ChambreRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ChambreRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -5484,18 +5168,18 @@ public final class Hotel {
     boolean getDisponible();
   }
   /**
-   * Protobuf type {@code ChambreInput}
+   * Protobuf type {@code ChambreRequest}
    */
-  public  static final class ChambreInput extends
+  public  static final class ChambreRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ChambreInput)
-      ChambreInputOrBuilder {
+      // @@protoc_insertion_point(message_implements:ChambreRequest)
+      ChambreRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ChambreInput.newBuilder() to construct.
-    private ChambreInput(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ChambreRequest.newBuilder() to construct.
+    private ChambreRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ChambreInput() {
+    private ChambreRequest() {
       type_ = "";
     }
 
@@ -5503,7 +5187,7 @@ public final class Hotel {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ChambreInput();
+      return new ChambreRequest();
     }
 
     @java.lang.Override
@@ -5511,7 +5195,7 @@ public final class Hotel {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ChambreInput(
+    private ChambreRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5566,15 +5250,15 @@ public final class Hotel {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_ChambreInput_descriptor;
+      return org.example.projetglobal.stubs.Hotel.internal_static_ChambreRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_ChambreInput_fieldAccessorTable
+      return org.example.projetglobal.stubs.Hotel.internal_static_ChambreRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.example.projetglobal.stubs.Hotel.ChambreInput.class, org.example.projetglobal.stubs.Hotel.ChambreInput.Builder.class);
+              org.example.projetglobal.stubs.Hotel.ChambreRequest.class, org.example.projetglobal.stubs.Hotel.ChambreRequest.Builder.class);
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
@@ -5686,10 +5370,10 @@ public final class Hotel {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.ChambreInput)) {
+      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.ChambreRequest)) {
         return super.equals(obj);
       }
-      org.example.projetglobal.stubs.Hotel.ChambreInput other = (org.example.projetglobal.stubs.Hotel.ChambreInput) obj;
+      org.example.projetglobal.stubs.Hotel.ChambreRequest other = (org.example.projetglobal.stubs.Hotel.ChambreRequest) obj;
 
       if (!getType()
           .equals(other.getType())) return false;
@@ -5722,69 +5406,69 @@ public final class Hotel {
       return hash;
     }
 
-    public static org.example.projetglobal.stubs.Hotel.ChambreInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ChambreRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ChambreRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ChambreRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ChambreRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreInput parseFrom(byte[] data)
+    public static org.example.projetglobal.stubs.Hotel.ChambreRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ChambreRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreInput parseFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.ChambreRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ChambreRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreInput parseDelimitedFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.ChambreRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreInput parseDelimitedFrom(
+    public static org.example.projetglobal.stubs.Hotel.ChambreRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ChambreRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ChambreRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5797,7 +5481,7 @@ public final class Hotel {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.ChambreInput prototype) {
+    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.ChambreRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -5813,26 +5497,26 @@ public final class Hotel {
       return builder;
     }
     /**
-     * Protobuf type {@code ChambreInput}
+     * Protobuf type {@code ChambreRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ChambreInput)
-        org.example.projetglobal.stubs.Hotel.ChambreInputOrBuilder {
+        // @@protoc_insertion_point(builder_implements:ChambreRequest)
+        org.example.projetglobal.stubs.Hotel.ChambreRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ChambreInput_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_ChambreRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ChambreInput_fieldAccessorTable
+        return org.example.projetglobal.stubs.Hotel.internal_static_ChambreRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.example.projetglobal.stubs.Hotel.ChambreInput.class, org.example.projetglobal.stubs.Hotel.ChambreInput.Builder.class);
+                org.example.projetglobal.stubs.Hotel.ChambreRequest.class, org.example.projetglobal.stubs.Hotel.ChambreRequest.Builder.class);
       }
 
-      // Construct using org.example.projetglobal.stubs.Hotel.ChambreInput.newBuilder()
+      // Construct using org.example.projetglobal.stubs.Hotel.ChambreRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5862,17 +5546,17 @@ public final class Hotel {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ChambreInput_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_ChambreRequest_descriptor;
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ChambreInput getDefaultInstanceForType() {
-        return org.example.projetglobal.stubs.Hotel.ChambreInput.getDefaultInstance();
+      public org.example.projetglobal.stubs.Hotel.ChambreRequest getDefaultInstanceForType() {
+        return org.example.projetglobal.stubs.Hotel.ChambreRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ChambreInput build() {
-        org.example.projetglobal.stubs.Hotel.ChambreInput result = buildPartial();
+      public org.example.projetglobal.stubs.Hotel.ChambreRequest build() {
+        org.example.projetglobal.stubs.Hotel.ChambreRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -5880,8 +5564,8 @@ public final class Hotel {
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ChambreInput buildPartial() {
-        org.example.projetglobal.stubs.Hotel.ChambreInput result = new org.example.projetglobal.stubs.Hotel.ChambreInput(this);
+      public org.example.projetglobal.stubs.Hotel.ChambreRequest buildPartial() {
+        org.example.projetglobal.stubs.Hotel.ChambreRequest result = new org.example.projetglobal.stubs.Hotel.ChambreRequest(this);
         result.type_ = type_;
         result.prix_ = prix_;
         result.disponible_ = disponible_;
@@ -5923,16 +5607,16 @@ public final class Hotel {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.example.projetglobal.stubs.Hotel.ChambreInput) {
-          return mergeFrom((org.example.projetglobal.stubs.Hotel.ChambreInput)other);
+        if (other instanceof org.example.projetglobal.stubs.Hotel.ChambreRequest) {
+          return mergeFrom((org.example.projetglobal.stubs.Hotel.ChambreRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.ChambreInput other) {
-        if (other == org.example.projetglobal.stubs.Hotel.ChambreInput.getDefaultInstance()) return this;
+      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.ChambreRequest other) {
+        if (other == org.example.projetglobal.stubs.Hotel.ChambreRequest.getDefaultInstance()) return this;
         if (!other.getType().isEmpty()) {
           type_ = other.type_;
           onChanged();
@@ -5958,11 +5642,11 @@ public final class Hotel {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.example.projetglobal.stubs.Hotel.ChambreInput parsedMessage = null;
+        org.example.projetglobal.stubs.Hotel.ChambreRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.example.projetglobal.stubs.Hotel.ChambreInput) e.getUnfinishedMessage();
+          parsedMessage = (org.example.projetglobal.stubs.Hotel.ChambreRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -6120,73 +5804,61 @@ public final class Hotel {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ChambreInput)
+      // @@protoc_insertion_point(builder_scope:ChambreRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:ChambreInput)
-    private static final org.example.projetglobal.stubs.Hotel.ChambreInput DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:ChambreRequest)
+    private static final org.example.projetglobal.stubs.Hotel.ChambreRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.ChambreInput();
+      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.ChambreRequest();
     }
 
-    public static org.example.projetglobal.stubs.Hotel.ChambreInput getDefaultInstance() {
+    public static org.example.projetglobal.stubs.Hotel.ChambreRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ChambreInput>
-        PARSER = new com.google.protobuf.AbstractParser<ChambreInput>() {
+    private static final com.google.protobuf.Parser<ChambreRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ChambreRequest>() {
       @java.lang.Override
-      public ChambreInput parsePartialFrom(
+      public ChambreRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ChambreInput(input, extensionRegistry);
+        return new ChambreRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ChambreInput> parser() {
+    public static com.google.protobuf.Parser<ChambreRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ChambreInput> getParserForType() {
+    public com.google.protobuf.Parser<ChambreRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public org.example.projetglobal.stubs.Hotel.ChambreInput getDefaultInstanceForType() {
+    public org.example.projetglobal.stubs.Hotel.ChambreRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface ReservationInputOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ReservationInput)
+  public interface ReservationRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ReservationRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string clientId = 1;</code>
+     * <code>int64 clientId = 1;</code>
      * @return The clientId.
      */
-    java.lang.String getClientId();
-    /**
-     * <code>string clientId = 1;</code>
-     * @return The bytes for clientId.
-     */
-    com.google.protobuf.ByteString
-        getClientIdBytes();
+    long getClientId();
 
     /**
-     * <code>string chambreId = 2;</code>
+     * <code>int64 chambreId = 2;</code>
      * @return The chambreId.
      */
-    java.lang.String getChambreId();
-    /**
-     * <code>string chambreId = 2;</code>
-     * @return The bytes for chambreId.
-     */
-    com.google.protobuf.ByteString
-        getChambreIdBytes();
+    long getChambreId();
 
     /**
      * <code>string dateDebut = 3;</code>
@@ -6225,20 +5897,18 @@ public final class Hotel {
         getPreferencesBytes();
   }
   /**
-   * Protobuf type {@code ReservationInput}
+   * Protobuf type {@code ReservationRequest}
    */
-  public  static final class ReservationInput extends
+  public  static final class ReservationRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ReservationInput)
-      ReservationInputOrBuilder {
+      // @@protoc_insertion_point(message_implements:ReservationRequest)
+      ReservationRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ReservationInput.newBuilder() to construct.
-    private ReservationInput(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ReservationRequest.newBuilder() to construct.
+    private ReservationRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ReservationInput() {
-      clientId_ = "";
-      chambreId_ = "";
+    private ReservationRequest() {
       dateDebut_ = "";
       dateFin_ = "";
       preferences_ = "";
@@ -6248,7 +5918,7 @@ public final class Hotel {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ReservationInput();
+      return new ReservationRequest();
     }
 
     @java.lang.Override
@@ -6256,7 +5926,7 @@ public final class Hotel {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ReservationInput(
+    private ReservationRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -6274,16 +5944,14 @@ public final class Hotel {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              clientId_ = s;
+              clientId_ = input.readInt64();
               break;
             }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 16: {
 
-              chambreId_ = s;
+              chambreId_ = input.readInt64();
               break;
             }
             case 26: {
@@ -6325,87 +5993,35 @@ public final class Hotel {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_ReservationInput_descriptor;
+      return org.example.projetglobal.stubs.Hotel.internal_static_ReservationRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_ReservationInput_fieldAccessorTable
+      return org.example.projetglobal.stubs.Hotel.internal_static_ReservationRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.example.projetglobal.stubs.Hotel.ReservationInput.class, org.example.projetglobal.stubs.Hotel.ReservationInput.Builder.class);
+              org.example.projetglobal.stubs.Hotel.ReservationRequest.class, org.example.projetglobal.stubs.Hotel.ReservationRequest.Builder.class);
     }
 
     public static final int CLIENTID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object clientId_;
+    private long clientId_;
     /**
-     * <code>string clientId = 1;</code>
+     * <code>int64 clientId = 1;</code>
      * @return The clientId.
      */
-    public java.lang.String getClientId() {
-      java.lang.Object ref = clientId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        clientId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string clientId = 1;</code>
-     * @return The bytes for clientId.
-     */
-    public com.google.protobuf.ByteString
-        getClientIdBytes() {
-      java.lang.Object ref = clientId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        clientId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getClientId() {
+      return clientId_;
     }
 
     public static final int CHAMBREID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object chambreId_;
+    private long chambreId_;
     /**
-     * <code>string chambreId = 2;</code>
+     * <code>int64 chambreId = 2;</code>
      * @return The chambreId.
      */
-    public java.lang.String getChambreId() {
-      java.lang.Object ref = chambreId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        chambreId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string chambreId = 2;</code>
-     * @return The bytes for chambreId.
-     */
-    public com.google.protobuf.ByteString
-        getChambreIdBytes() {
-      java.lang.Object ref = chambreId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        chambreId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getChambreId() {
+      return chambreId_;
     }
 
     public static final int DATEDEBUT_FIELD_NUMBER = 3;
@@ -6530,11 +6146,11 @@ public final class Hotel {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getClientIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, clientId_);
+      if (clientId_ != 0L) {
+        output.writeInt64(1, clientId_);
       }
-      if (!getChambreIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, chambreId_);
+      if (chambreId_ != 0L) {
+        output.writeInt64(2, chambreId_);
       }
       if (!getDateDebutBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, dateDebut_);
@@ -6554,11 +6170,13 @@ public final class Hotel {
       if (size != -1) return size;
 
       size = 0;
-      if (!getClientIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, clientId_);
+      if (clientId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, clientId_);
       }
-      if (!getChambreIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, chambreId_);
+      if (chambreId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, chambreId_);
       }
       if (!getDateDebutBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, dateDebut_);
@@ -6579,15 +6197,15 @@ public final class Hotel {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.ReservationInput)) {
+      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.ReservationRequest)) {
         return super.equals(obj);
       }
-      org.example.projetglobal.stubs.Hotel.ReservationInput other = (org.example.projetglobal.stubs.Hotel.ReservationInput) obj;
+      org.example.projetglobal.stubs.Hotel.ReservationRequest other = (org.example.projetglobal.stubs.Hotel.ReservationRequest) obj;
 
-      if (!getClientId()
-          .equals(other.getClientId())) return false;
-      if (!getChambreId()
-          .equals(other.getChambreId())) return false;
+      if (getClientId()
+          != other.getClientId()) return false;
+      if (getChambreId()
+          != other.getChambreId()) return false;
       if (!getDateDebut()
           .equals(other.getDateDebut())) return false;
       if (!getDateFin()
@@ -6606,9 +6224,11 @@ public final class Hotel {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CLIENTID_FIELD_NUMBER;
-      hash = (53 * hash) + getClientId().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getClientId());
       hash = (37 * hash) + CHAMBREID_FIELD_NUMBER;
-      hash = (53 * hash) + getChambreId().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getChambreId());
       hash = (37 * hash) + DATEDEBUT_FIELD_NUMBER;
       hash = (53 * hash) + getDateDebut().hashCode();
       hash = (37 * hash) + DATEFIN_FIELD_NUMBER;
@@ -6620,69 +6240,69 @@ public final class Hotel {
       return hash;
     }
 
-    public static org.example.projetglobal.stubs.Hotel.ReservationInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ReservationRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ReservationRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ReservationRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ReservationRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationInput parseFrom(byte[] data)
+    public static org.example.projetglobal.stubs.Hotel.ReservationRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ReservationRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationInput parseFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.ReservationRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ReservationRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationInput parseDelimitedFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.ReservationRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationInput parseDelimitedFrom(
+    public static org.example.projetglobal.stubs.Hotel.ReservationRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ReservationRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.ReservationRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -6695,7 +6315,7 @@ public final class Hotel {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.ReservationInput prototype) {
+    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.ReservationRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -6711,26 +6331,26 @@ public final class Hotel {
       return builder;
     }
     /**
-     * Protobuf type {@code ReservationInput}
+     * Protobuf type {@code ReservationRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ReservationInput)
-        org.example.projetglobal.stubs.Hotel.ReservationInputOrBuilder {
+        // @@protoc_insertion_point(builder_implements:ReservationRequest)
+        org.example.projetglobal.stubs.Hotel.ReservationRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ReservationInput_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_ReservationRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ReservationInput_fieldAccessorTable
+        return org.example.projetglobal.stubs.Hotel.internal_static_ReservationRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.example.projetglobal.stubs.Hotel.ReservationInput.class, org.example.projetglobal.stubs.Hotel.ReservationInput.Builder.class);
+                org.example.projetglobal.stubs.Hotel.ReservationRequest.class, org.example.projetglobal.stubs.Hotel.ReservationRequest.Builder.class);
       }
 
-      // Construct using org.example.projetglobal.stubs.Hotel.ReservationInput.newBuilder()
+      // Construct using org.example.projetglobal.stubs.Hotel.ReservationRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6748,9 +6368,9 @@ public final class Hotel {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        clientId_ = "";
+        clientId_ = 0L;
 
-        chambreId_ = "";
+        chambreId_ = 0L;
 
         dateDebut_ = "";
 
@@ -6764,17 +6384,17 @@ public final class Hotel {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ReservationInput_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_ReservationRequest_descriptor;
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ReservationInput getDefaultInstanceForType() {
-        return org.example.projetglobal.stubs.Hotel.ReservationInput.getDefaultInstance();
+      public org.example.projetglobal.stubs.Hotel.ReservationRequest getDefaultInstanceForType() {
+        return org.example.projetglobal.stubs.Hotel.ReservationRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ReservationInput build() {
-        org.example.projetglobal.stubs.Hotel.ReservationInput result = buildPartial();
+      public org.example.projetglobal.stubs.Hotel.ReservationRequest build() {
+        org.example.projetglobal.stubs.Hotel.ReservationRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -6782,8 +6402,8 @@ public final class Hotel {
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ReservationInput buildPartial() {
-        org.example.projetglobal.stubs.Hotel.ReservationInput result = new org.example.projetglobal.stubs.Hotel.ReservationInput(this);
+      public org.example.projetglobal.stubs.Hotel.ReservationRequest buildPartial() {
+        org.example.projetglobal.stubs.Hotel.ReservationRequest result = new org.example.projetglobal.stubs.Hotel.ReservationRequest(this);
         result.clientId_ = clientId_;
         result.chambreId_ = chambreId_;
         result.dateDebut_ = dateDebut_;
@@ -6827,23 +6447,21 @@ public final class Hotel {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.example.projetglobal.stubs.Hotel.ReservationInput) {
-          return mergeFrom((org.example.projetglobal.stubs.Hotel.ReservationInput)other);
+        if (other instanceof org.example.projetglobal.stubs.Hotel.ReservationRequest) {
+          return mergeFrom((org.example.projetglobal.stubs.Hotel.ReservationRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.ReservationInput other) {
-        if (other == org.example.projetglobal.stubs.Hotel.ReservationInput.getDefaultInstance()) return this;
-        if (!other.getClientId().isEmpty()) {
-          clientId_ = other.clientId_;
-          onChanged();
+      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.ReservationRequest other) {
+        if (other == org.example.projetglobal.stubs.Hotel.ReservationRequest.getDefaultInstance()) return this;
+        if (other.getClientId() != 0L) {
+          setClientId(other.getClientId());
         }
-        if (!other.getChambreId().isEmpty()) {
-          chambreId_ = other.chambreId_;
-          onChanged();
+        if (other.getChambreId() != 0L) {
+          setChambreId(other.getChambreId());
         }
         if (!other.getDateDebut().isEmpty()) {
           dateDebut_ = other.dateDebut_;
@@ -6872,11 +6490,11 @@ public final class Hotel {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.example.projetglobal.stubs.Hotel.ReservationInput parsedMessage = null;
+        org.example.projetglobal.stubs.Hotel.ReservationRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.example.projetglobal.stubs.Hotel.ReservationInput) e.getUnfinishedMessage();
+          parsedMessage = (org.example.projetglobal.stubs.Hotel.ReservationRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -6886,154 +6504,62 @@ public final class Hotel {
         return this;
       }
 
-      private java.lang.Object clientId_ = "";
+      private long clientId_ ;
       /**
-       * <code>string clientId = 1;</code>
+       * <code>int64 clientId = 1;</code>
        * @return The clientId.
        */
-      public java.lang.String getClientId() {
-        java.lang.Object ref = clientId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          clientId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getClientId() {
+        return clientId_;
       }
       /**
-       * <code>string clientId = 1;</code>
-       * @return The bytes for clientId.
-       */
-      public com.google.protobuf.ByteString
-          getClientIdBytes() {
-        java.lang.Object ref = clientId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          clientId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string clientId = 1;</code>
+       * <code>int64 clientId = 1;</code>
        * @param value The clientId to set.
        * @return This builder for chaining.
        */
-      public Builder setClientId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setClientId(long value) {
+        
         clientId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string clientId = 1;</code>
+       * <code>int64 clientId = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearClientId() {
         
-        clientId_ = getDefaultInstance().getClientId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string clientId = 1;</code>
-       * @param value The bytes for clientId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setClientIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        clientId_ = value;
+        clientId_ = 0L;
         onChanged();
         return this;
       }
 
-      private java.lang.Object chambreId_ = "";
+      private long chambreId_ ;
       /**
-       * <code>string chambreId = 2;</code>
+       * <code>int64 chambreId = 2;</code>
        * @return The chambreId.
        */
-      public java.lang.String getChambreId() {
-        java.lang.Object ref = chambreId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          chambreId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getChambreId() {
+        return chambreId_;
       }
       /**
-       * <code>string chambreId = 2;</code>
-       * @return The bytes for chambreId.
-       */
-      public com.google.protobuf.ByteString
-          getChambreIdBytes() {
-        java.lang.Object ref = chambreId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          chambreId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string chambreId = 2;</code>
+       * <code>int64 chambreId = 2;</code>
        * @param value The chambreId to set.
        * @return This builder for chaining.
        */
-      public Builder setChambreId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setChambreId(long value) {
+        
         chambreId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string chambreId = 2;</code>
+       * <code>int64 chambreId = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearChambreId() {
         
-        chambreId_ = getDefaultInstance().getChambreId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string chambreId = 2;</code>
-       * @param value The bytes for chambreId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setChambreIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        chambreId_ = value;
+        chambreId_ = 0L;
         onChanged();
         return this;
       }
@@ -7278,48 +6804,48 @@ public final class Hotel {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ReservationInput)
+      // @@protoc_insertion_point(builder_scope:ReservationRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:ReservationInput)
-    private static final org.example.projetglobal.stubs.Hotel.ReservationInput DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:ReservationRequest)
+    private static final org.example.projetglobal.stubs.Hotel.ReservationRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.ReservationInput();
+      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.ReservationRequest();
     }
 
-    public static org.example.projetglobal.stubs.Hotel.ReservationInput getDefaultInstance() {
+    public static org.example.projetglobal.stubs.Hotel.ReservationRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ReservationInput>
-        PARSER = new com.google.protobuf.AbstractParser<ReservationInput>() {
+    private static final com.google.protobuf.Parser<ReservationRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ReservationRequest>() {
       @java.lang.Override
-      public ReservationInput parsePartialFrom(
+      public ReservationRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReservationInput(input, extensionRegistry);
+        return new ReservationRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ReservationInput> parser() {
+    public static com.google.protobuf.Parser<ReservationRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ReservationInput> getParserForType() {
+    public com.google.protobuf.Parser<ReservationRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public org.example.projetglobal.stubs.Hotel.ReservationInput getDefaultInstanceForType() {
+    public org.example.projetglobal.stubs.Hotel.ReservationRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface UtilisateurInputOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:UtilisateurInput)
+  public interface UtilisateurRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:UtilisateurRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -7359,18 +6885,18 @@ public final class Hotel {
         getRoleBytes();
   }
   /**
-   * Protobuf type {@code UtilisateurInput}
+   * Protobuf type {@code UtilisateurRequest}
    */
-  public  static final class UtilisateurInput extends
+  public  static final class UtilisateurRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:UtilisateurInput)
-      UtilisateurInputOrBuilder {
+      // @@protoc_insertion_point(message_implements:UtilisateurRequest)
+      UtilisateurRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use UtilisateurInput.newBuilder() to construct.
-    private UtilisateurInput(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use UtilisateurRequest.newBuilder() to construct.
+    private UtilisateurRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private UtilisateurInput() {
+    private UtilisateurRequest() {
       nomUtilisateur_ = "";
       motDePasse_ = "";
       role_ = "";
@@ -7380,7 +6906,7 @@ public final class Hotel {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new UtilisateurInput();
+      return new UtilisateurRequest();
     }
 
     @java.lang.Override
@@ -7388,7 +6914,7 @@ public final class Hotel {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private UtilisateurInput(
+    private UtilisateurRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7445,15 +6971,15 @@ public final class Hotel {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurInput_descriptor;
+      return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurInput_fieldAccessorTable
+      return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.example.projetglobal.stubs.Hotel.UtilisateurInput.class, org.example.projetglobal.stubs.Hotel.UtilisateurInput.Builder.class);
+              org.example.projetglobal.stubs.Hotel.UtilisateurRequest.class, org.example.projetglobal.stubs.Hotel.UtilisateurRequest.Builder.class);
     }
 
     public static final int NOMUTILISATEUR_FIELD_NUMBER = 1;
@@ -7615,10 +7141,10 @@ public final class Hotel {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.UtilisateurInput)) {
+      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.UtilisateurRequest)) {
         return super.equals(obj);
       }
-      org.example.projetglobal.stubs.Hotel.UtilisateurInput other = (org.example.projetglobal.stubs.Hotel.UtilisateurInput) obj;
+      org.example.projetglobal.stubs.Hotel.UtilisateurRequest other = (org.example.projetglobal.stubs.Hotel.UtilisateurRequest) obj;
 
       if (!getNomUtilisateur()
           .equals(other.getNomUtilisateur())) return false;
@@ -7648,69 +7174,69 @@ public final class Hotel {
       return hash;
     }
 
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.UtilisateurRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.UtilisateurRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.UtilisateurRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.UtilisateurRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurInput parseFrom(byte[] data)
+    public static org.example.projetglobal.stubs.Hotel.UtilisateurRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.UtilisateurRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurInput parseFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.UtilisateurRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.UtilisateurRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurInput parseDelimitedFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.UtilisateurRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurInput parseDelimitedFrom(
+    public static org.example.projetglobal.stubs.Hotel.UtilisateurRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.UtilisateurRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurInput parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.UtilisateurRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -7723,7 +7249,7 @@ public final class Hotel {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.UtilisateurInput prototype) {
+    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.UtilisateurRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -7739,26 +7265,26 @@ public final class Hotel {
       return builder;
     }
     /**
-     * Protobuf type {@code UtilisateurInput}
+     * Protobuf type {@code UtilisateurRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:UtilisateurInput)
-        org.example.projetglobal.stubs.Hotel.UtilisateurInputOrBuilder {
+        // @@protoc_insertion_point(builder_implements:UtilisateurRequest)
+        org.example.projetglobal.stubs.Hotel.UtilisateurRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurInput_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurInput_fieldAccessorTable
+        return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.example.projetglobal.stubs.Hotel.UtilisateurInput.class, org.example.projetglobal.stubs.Hotel.UtilisateurInput.Builder.class);
+                org.example.projetglobal.stubs.Hotel.UtilisateurRequest.class, org.example.projetglobal.stubs.Hotel.UtilisateurRequest.Builder.class);
       }
 
-      // Construct using org.example.projetglobal.stubs.Hotel.UtilisateurInput.newBuilder()
+      // Construct using org.example.projetglobal.stubs.Hotel.UtilisateurRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7788,17 +7314,17 @@ public final class Hotel {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurInput_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurRequest_descriptor;
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.UtilisateurInput getDefaultInstanceForType() {
-        return org.example.projetglobal.stubs.Hotel.UtilisateurInput.getDefaultInstance();
+      public org.example.projetglobal.stubs.Hotel.UtilisateurRequest getDefaultInstanceForType() {
+        return org.example.projetglobal.stubs.Hotel.UtilisateurRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.UtilisateurInput build() {
-        org.example.projetglobal.stubs.Hotel.UtilisateurInput result = buildPartial();
+      public org.example.projetglobal.stubs.Hotel.UtilisateurRequest build() {
+        org.example.projetglobal.stubs.Hotel.UtilisateurRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -7806,8 +7332,8 @@ public final class Hotel {
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.UtilisateurInput buildPartial() {
-        org.example.projetglobal.stubs.Hotel.UtilisateurInput result = new org.example.projetglobal.stubs.Hotel.UtilisateurInput(this);
+      public org.example.projetglobal.stubs.Hotel.UtilisateurRequest buildPartial() {
+        org.example.projetglobal.stubs.Hotel.UtilisateurRequest result = new org.example.projetglobal.stubs.Hotel.UtilisateurRequest(this);
         result.nomUtilisateur_ = nomUtilisateur_;
         result.motDePasse_ = motDePasse_;
         result.role_ = role_;
@@ -7849,16 +7375,16 @@ public final class Hotel {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.example.projetglobal.stubs.Hotel.UtilisateurInput) {
-          return mergeFrom((org.example.projetglobal.stubs.Hotel.UtilisateurInput)other);
+        if (other instanceof org.example.projetglobal.stubs.Hotel.UtilisateurRequest) {
+          return mergeFrom((org.example.projetglobal.stubs.Hotel.UtilisateurRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.UtilisateurInput other) {
-        if (other == org.example.projetglobal.stubs.Hotel.UtilisateurInput.getDefaultInstance()) return this;
+      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.UtilisateurRequest other) {
+        if (other == org.example.projetglobal.stubs.Hotel.UtilisateurRequest.getDefaultInstance()) return this;
         if (!other.getNomUtilisateur().isEmpty()) {
           nomUtilisateur_ = other.nomUtilisateur_;
           onChanged();
@@ -7886,11 +7412,11 @@ public final class Hotel {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.example.projetglobal.stubs.Hotel.UtilisateurInput parsedMessage = null;
+        org.example.projetglobal.stubs.Hotel.UtilisateurRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.example.projetglobal.stubs.Hotel.UtilisateurInput) e.getUnfinishedMessage();
+          parsedMessage = (org.example.projetglobal.stubs.Hotel.UtilisateurRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -8140,41 +7666,41 @@ public final class Hotel {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:UtilisateurInput)
+      // @@protoc_insertion_point(builder_scope:UtilisateurRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:UtilisateurInput)
-    private static final org.example.projetglobal.stubs.Hotel.UtilisateurInput DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:UtilisateurRequest)
+    private static final org.example.projetglobal.stubs.Hotel.UtilisateurRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.UtilisateurInput();
+      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.UtilisateurRequest();
     }
 
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurInput getDefaultInstance() {
+    public static org.example.projetglobal.stubs.Hotel.UtilisateurRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<UtilisateurInput>
-        PARSER = new com.google.protobuf.AbstractParser<UtilisateurInput>() {
+    private static final com.google.protobuf.Parser<UtilisateurRequest>
+        PARSER = new com.google.protobuf.AbstractParser<UtilisateurRequest>() {
       @java.lang.Override
-      public UtilisateurInput parsePartialFrom(
+      public UtilisateurRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UtilisateurInput(input, extensionRegistry);
+        return new UtilisateurRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<UtilisateurInput> parser() {
+    public static com.google.protobuf.Parser<UtilisateurRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<UtilisateurInput> getParserForType() {
+    public com.google.protobuf.Parser<UtilisateurRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public org.example.projetglobal.stubs.Hotel.UtilisateurInput getDefaultInstanceForType() {
+    public org.example.projetglobal.stubs.Hotel.UtilisateurRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -8611,16 +8137,10 @@ public final class Hotel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    long getId();
   }
   /**
    * Protobuf type {@code ClientIdRequest}
@@ -8635,7 +8155,6 @@ public final class Hotel {
       super(builder);
     }
     private ClientIdRequest() {
-      id_ = "";
     }
 
     @java.lang.Override
@@ -8668,10 +8187,9 @@ public final class Hotel {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              id_ = s;
+              id_ = input.readInt64();
               break;
             }
             default: {
@@ -8707,39 +8225,13 @@ public final class Hotel {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    private long id_;
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getId() {
+      return id_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -8756,8 +8248,8 @@ public final class Hotel {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
       }
       unknownFields.writeTo(output);
     }
@@ -8768,8 +8260,9 @@ public final class Hotel {
       if (size != -1) return size;
 
       size = 0;
-      if (!getIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8786,8 +8279,8 @@ public final class Hotel {
       }
       org.example.projetglobal.stubs.Hotel.ClientIdRequest other = (org.example.projetglobal.stubs.Hotel.ClientIdRequest) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getId()
+          != other.getId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -8800,7 +8293,8 @@ public final class Hotel {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8934,7 +8428,7 @@ public final class Hotel {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = "";
+        id_ = 0L;
 
         return this;
       }
@@ -9011,9 +8505,8 @@ public final class Hotel {
 
       public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.ClientIdRequest other) {
         if (other == org.example.projetglobal.stubs.Hotel.ClientIdRequest.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          onChanged();
+        if (other.getId() != 0L) {
+          setId(other.getId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -9044,78 +8537,32 @@ public final class Hotel {
         return this;
       }
 
-      private java.lang.Object id_ = "";
+      private long id_ ;
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getId() {
+        return id_;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setId(long value) {
+        
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
         
-        id_ = getDefaultInstance().getId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        id_ = value;
+        id_ = 0L;
         onChanged();
         return this;
       }
@@ -9177,16 +8624,10 @@ public final class Hotel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    long getId();
   }
   /**
    * Protobuf type {@code ChambreIdRequest}
@@ -9201,7 +8642,6 @@ public final class Hotel {
       super(builder);
     }
     private ChambreIdRequest() {
-      id_ = "";
     }
 
     @java.lang.Override
@@ -9234,10 +8674,9 @@ public final class Hotel {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              id_ = s;
+              id_ = input.readInt64();
               break;
             }
             default: {
@@ -9273,39 +8712,13 @@ public final class Hotel {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    private long id_;
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getId() {
+      return id_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9322,8 +8735,8 @@ public final class Hotel {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
       }
       unknownFields.writeTo(output);
     }
@@ -9334,8 +8747,9 @@ public final class Hotel {
       if (size != -1) return size;
 
       size = 0;
-      if (!getIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9352,8 +8766,8 @@ public final class Hotel {
       }
       org.example.projetglobal.stubs.Hotel.ChambreIdRequest other = (org.example.projetglobal.stubs.Hotel.ChambreIdRequest) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getId()
+          != other.getId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -9366,7 +8780,8 @@ public final class Hotel {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -9500,7 +8915,7 @@ public final class Hotel {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = "";
+        id_ = 0L;
 
         return this;
       }
@@ -9577,9 +8992,8 @@ public final class Hotel {
 
       public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.ChambreIdRequest other) {
         if (other == org.example.projetglobal.stubs.Hotel.ChambreIdRequest.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          onChanged();
+        if (other.getId() != 0L) {
+          setId(other.getId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -9610,78 +9024,32 @@ public final class Hotel {
         return this;
       }
 
-      private java.lang.Object id_ = "";
+      private long id_ ;
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getId() {
+        return id_;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setId(long value) {
+        
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
         
-        id_ = getDefaultInstance().getId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        id_ = value;
+        id_ = 0L;
         onChanged();
         return this;
       }
@@ -9743,16 +9111,10 @@ public final class Hotel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    long getId();
   }
   /**
    * Protobuf type {@code ReservationIdRequest}
@@ -9767,7 +9129,6 @@ public final class Hotel {
       super(builder);
     }
     private ReservationIdRequest() {
-      id_ = "";
     }
 
     @java.lang.Override
@@ -9800,10 +9161,9 @@ public final class Hotel {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              id_ = s;
+              id_ = input.readInt64();
               break;
             }
             default: {
@@ -9839,39 +9199,13 @@ public final class Hotel {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    private long id_;
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getId() {
+      return id_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9888,8 +9222,8 @@ public final class Hotel {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
       }
       unknownFields.writeTo(output);
     }
@@ -9900,8 +9234,9 @@ public final class Hotel {
       if (size != -1) return size;
 
       size = 0;
-      if (!getIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9918,8 +9253,8 @@ public final class Hotel {
       }
       org.example.projetglobal.stubs.Hotel.ReservationIdRequest other = (org.example.projetglobal.stubs.Hotel.ReservationIdRequest) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getId()
+          != other.getId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -9932,7 +9267,8 @@ public final class Hotel {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -10066,7 +9402,7 @@ public final class Hotel {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = "";
+        id_ = 0L;
 
         return this;
       }
@@ -10143,9 +9479,8 @@ public final class Hotel {
 
       public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.ReservationIdRequest other) {
         if (other == org.example.projetglobal.stubs.Hotel.ReservationIdRequest.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          onChanged();
+        if (other.getId() != 0L) {
+          setId(other.getId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -10176,78 +9511,32 @@ public final class Hotel {
         return this;
       }
 
-      private java.lang.Object id_ = "";
+      private long id_ ;
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getId() {
+        return id_;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setId(long value) {
+        
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
         
-        id_ = getDefaultInstance().getId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        id_ = value;
+        id_ = 0L;
         onChanged();
         return this;
       }
@@ -10309,16 +9598,10 @@ public final class Hotel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    long getId();
   }
   /**
    * Protobuf type {@code UtilisateurIdRequest}
@@ -10333,7 +9616,6 @@ public final class Hotel {
       super(builder);
     }
     private UtilisateurIdRequest() {
-      id_ = "";
     }
 
     @java.lang.Override
@@ -10366,10 +9648,9 @@ public final class Hotel {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              id_ = s;
+              id_ = input.readInt64();
               break;
             }
             default: {
@@ -10405,39 +9686,13 @@ public final class Hotel {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    private long id_;
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getId() {
+      return id_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10454,8 +9709,8 @@ public final class Hotel {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
       }
       unknownFields.writeTo(output);
     }
@@ -10466,8 +9721,9 @@ public final class Hotel {
       if (size != -1) return size;
 
       size = 0;
-      if (!getIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -10484,8 +9740,8 @@ public final class Hotel {
       }
       org.example.projetglobal.stubs.Hotel.UtilisateurIdRequest other = (org.example.projetglobal.stubs.Hotel.UtilisateurIdRequest) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getId()
+          != other.getId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -10498,7 +9754,8 @@ public final class Hotel {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -10632,7 +9889,7 @@ public final class Hotel {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = "";
+        id_ = 0L;
 
         return this;
       }
@@ -10709,9 +9966,8 @@ public final class Hotel {
 
       public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.UtilisateurIdRequest other) {
         if (other == org.example.projetglobal.stubs.Hotel.UtilisateurIdRequest.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          onChanged();
+        if (other.getId() != 0L) {
+          setId(other.getId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -10742,78 +9998,32 @@ public final class Hotel {
         return this;
       }
 
-      private java.lang.Object id_ = "";
+      private long id_ ;
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getId() {
+        return id_;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setId(long value) {
+        
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
         
-        id_ = getDefaultInstance().getId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        id_ = value;
+        id_ = 0L;
         onChanged();
         return this;
       }
@@ -11357,8 +10567,8 @@ public final class Hotel {
 
   }
 
-  public interface ClientListOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ClientList)
+  public interface GetAllClientsResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GetAllClientsResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -11390,18 +10600,18 @@ public final class Hotel {
    * Define list responses
    * </pre>
    *
-   * Protobuf type {@code ClientList}
+   * Protobuf type {@code GetAllClientsResponse}
    */
-  public  static final class ClientList extends
+  public  static final class GetAllClientsResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ClientList)
-      ClientListOrBuilder {
+      // @@protoc_insertion_point(message_implements:GetAllClientsResponse)
+      GetAllClientsResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ClientList.newBuilder() to construct.
-    private ClientList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GetAllClientsResponse.newBuilder() to construct.
+    private GetAllClientsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ClientList() {
+    private GetAllClientsResponse() {
       clients_ = java.util.Collections.emptyList();
     }
 
@@ -11409,7 +10619,7 @@ public final class Hotel {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ClientList();
+      return new GetAllClientsResponse();
     }
 
     @java.lang.Override
@@ -11417,7 +10627,7 @@ public final class Hotel {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ClientList(
+    private GetAllClientsResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -11469,15 +10679,15 @@ public final class Hotel {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_ClientList_descriptor;
+      return org.example.projetglobal.stubs.Hotel.internal_static_GetAllClientsResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_ClientList_fieldAccessorTable
+      return org.example.projetglobal.stubs.Hotel.internal_static_GetAllClientsResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.example.projetglobal.stubs.Hotel.ClientList.class, org.example.projetglobal.stubs.Hotel.ClientList.Builder.class);
+              org.example.projetglobal.stubs.Hotel.GetAllClientsResponse.class, org.example.projetglobal.stubs.Hotel.GetAllClientsResponse.Builder.class);
     }
 
     public static final int CLIENTS_FIELD_NUMBER = 1;
@@ -11555,10 +10765,10 @@ public final class Hotel {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.ClientList)) {
+      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.GetAllClientsResponse)) {
         return super.equals(obj);
       }
-      org.example.projetglobal.stubs.Hotel.ClientList other = (org.example.projetglobal.stubs.Hotel.ClientList) obj;
+      org.example.projetglobal.stubs.Hotel.GetAllClientsResponse other = (org.example.projetglobal.stubs.Hotel.GetAllClientsResponse) obj;
 
       if (!getClientsList()
           .equals(other.getClientsList())) return false;
@@ -11582,69 +10792,69 @@ public final class Hotel {
       return hash;
     }
 
-    public static org.example.projetglobal.stubs.Hotel.ClientList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllClientsResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllClientsResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllClientsResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllClientsResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientList parseFrom(byte[] data)
+    public static org.example.projetglobal.stubs.Hotel.GetAllClientsResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllClientsResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientList parseFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.GetAllClientsResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllClientsResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientList parseDelimitedFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.GetAllClientsResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientList parseDelimitedFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllClientsResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllClientsResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ClientList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllClientsResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11657,7 +10867,7 @@ public final class Hotel {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.ClientList prototype) {
+    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.GetAllClientsResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -11677,26 +10887,26 @@ public final class Hotel {
      * Define list responses
      * </pre>
      *
-     * Protobuf type {@code ClientList}
+     * Protobuf type {@code GetAllClientsResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ClientList)
-        org.example.projetglobal.stubs.Hotel.ClientListOrBuilder {
+        // @@protoc_insertion_point(builder_implements:GetAllClientsResponse)
+        org.example.projetglobal.stubs.Hotel.GetAllClientsResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ClientList_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_GetAllClientsResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ClientList_fieldAccessorTable
+        return org.example.projetglobal.stubs.Hotel.internal_static_GetAllClientsResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.example.projetglobal.stubs.Hotel.ClientList.class, org.example.projetglobal.stubs.Hotel.ClientList.Builder.class);
+                org.example.projetglobal.stubs.Hotel.GetAllClientsResponse.class, org.example.projetglobal.stubs.Hotel.GetAllClientsResponse.Builder.class);
       }
 
-      // Construct using org.example.projetglobal.stubs.Hotel.ClientList.newBuilder()
+      // Construct using org.example.projetglobal.stubs.Hotel.GetAllClientsResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11727,17 +10937,17 @@ public final class Hotel {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ClientList_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_GetAllClientsResponse_descriptor;
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ClientList getDefaultInstanceForType() {
-        return org.example.projetglobal.stubs.Hotel.ClientList.getDefaultInstance();
+      public org.example.projetglobal.stubs.Hotel.GetAllClientsResponse getDefaultInstanceForType() {
+        return org.example.projetglobal.stubs.Hotel.GetAllClientsResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ClientList build() {
-        org.example.projetglobal.stubs.Hotel.ClientList result = buildPartial();
+      public org.example.projetglobal.stubs.Hotel.GetAllClientsResponse build() {
+        org.example.projetglobal.stubs.Hotel.GetAllClientsResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -11745,8 +10955,8 @@ public final class Hotel {
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ClientList buildPartial() {
-        org.example.projetglobal.stubs.Hotel.ClientList result = new org.example.projetglobal.stubs.Hotel.ClientList(this);
+      public org.example.projetglobal.stubs.Hotel.GetAllClientsResponse buildPartial() {
+        org.example.projetglobal.stubs.Hotel.GetAllClientsResponse result = new org.example.projetglobal.stubs.Hotel.GetAllClientsResponse(this);
         int from_bitField0_ = bitField0_;
         if (clientsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
@@ -11795,16 +11005,16 @@ public final class Hotel {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.example.projetglobal.stubs.Hotel.ClientList) {
-          return mergeFrom((org.example.projetglobal.stubs.Hotel.ClientList)other);
+        if (other instanceof org.example.projetglobal.stubs.Hotel.GetAllClientsResponse) {
+          return mergeFrom((org.example.projetglobal.stubs.Hotel.GetAllClientsResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.ClientList other) {
-        if (other == org.example.projetglobal.stubs.Hotel.ClientList.getDefaultInstance()) return this;
+      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.GetAllClientsResponse other) {
+        if (other == org.example.projetglobal.stubs.Hotel.GetAllClientsResponse.getDefaultInstance()) return this;
         if (clientsBuilder_ == null) {
           if (!other.clients_.isEmpty()) {
             if (clients_.isEmpty()) {
@@ -11846,11 +11056,11 @@ public final class Hotel {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.example.projetglobal.stubs.Hotel.ClientList parsedMessage = null;
+        org.example.projetglobal.stubs.Hotel.GetAllClientsResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.example.projetglobal.stubs.Hotel.ClientList) e.getUnfinishedMessage();
+          parsedMessage = (org.example.projetglobal.stubs.Hotel.GetAllClientsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -12113,48 +11323,48 @@ public final class Hotel {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ClientList)
+      // @@protoc_insertion_point(builder_scope:GetAllClientsResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:ClientList)
-    private static final org.example.projetglobal.stubs.Hotel.ClientList DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:GetAllClientsResponse)
+    private static final org.example.projetglobal.stubs.Hotel.GetAllClientsResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.ClientList();
+      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.GetAllClientsResponse();
     }
 
-    public static org.example.projetglobal.stubs.Hotel.ClientList getDefaultInstance() {
+    public static org.example.projetglobal.stubs.Hotel.GetAllClientsResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ClientList>
-        PARSER = new com.google.protobuf.AbstractParser<ClientList>() {
+    private static final com.google.protobuf.Parser<GetAllClientsResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetAllClientsResponse>() {
       @java.lang.Override
-      public ClientList parsePartialFrom(
+      public GetAllClientsResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClientList(input, extensionRegistry);
+        return new GetAllClientsResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ClientList> parser() {
+    public static com.google.protobuf.Parser<GetAllClientsResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ClientList> getParserForType() {
+    public com.google.protobuf.Parser<GetAllClientsResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public org.example.projetglobal.stubs.Hotel.ClientList getDefaultInstanceForType() {
+    public org.example.projetglobal.stubs.Hotel.GetAllClientsResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface ChambreListOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ChambreList)
+  public interface GetAllChambresResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GetAllChambresResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -12182,18 +11392,18 @@ public final class Hotel {
         int index);
   }
   /**
-   * Protobuf type {@code ChambreList}
+   * Protobuf type {@code GetAllChambresResponse}
    */
-  public  static final class ChambreList extends
+  public  static final class GetAllChambresResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ChambreList)
-      ChambreListOrBuilder {
+      // @@protoc_insertion_point(message_implements:GetAllChambresResponse)
+      GetAllChambresResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ChambreList.newBuilder() to construct.
-    private ChambreList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GetAllChambresResponse.newBuilder() to construct.
+    private GetAllChambresResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ChambreList() {
+    private GetAllChambresResponse() {
       chambres_ = java.util.Collections.emptyList();
     }
 
@@ -12201,7 +11411,7 @@ public final class Hotel {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ChambreList();
+      return new GetAllChambresResponse();
     }
 
     @java.lang.Override
@@ -12209,7 +11419,7 @@ public final class Hotel {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ChambreList(
+    private GetAllChambresResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -12261,15 +11471,15 @@ public final class Hotel {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_ChambreList_descriptor;
+      return org.example.projetglobal.stubs.Hotel.internal_static_GetAllChambresResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_ChambreList_fieldAccessorTable
+      return org.example.projetglobal.stubs.Hotel.internal_static_GetAllChambresResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.example.projetglobal.stubs.Hotel.ChambreList.class, org.example.projetglobal.stubs.Hotel.ChambreList.Builder.class);
+              org.example.projetglobal.stubs.Hotel.GetAllChambresResponse.class, org.example.projetglobal.stubs.Hotel.GetAllChambresResponse.Builder.class);
     }
 
     public static final int CHAMBRES_FIELD_NUMBER = 1;
@@ -12347,10 +11557,10 @@ public final class Hotel {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.ChambreList)) {
+      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.GetAllChambresResponse)) {
         return super.equals(obj);
       }
-      org.example.projetglobal.stubs.Hotel.ChambreList other = (org.example.projetglobal.stubs.Hotel.ChambreList) obj;
+      org.example.projetglobal.stubs.Hotel.GetAllChambresResponse other = (org.example.projetglobal.stubs.Hotel.GetAllChambresResponse) obj;
 
       if (!getChambresList()
           .equals(other.getChambresList())) return false;
@@ -12374,69 +11584,69 @@ public final class Hotel {
       return hash;
     }
 
-    public static org.example.projetglobal.stubs.Hotel.ChambreList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllChambresResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllChambresResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllChambresResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllChambresResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreList parseFrom(byte[] data)
+    public static org.example.projetglobal.stubs.Hotel.GetAllChambresResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllChambresResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreList parseFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.GetAllChambresResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllChambresResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreList parseDelimitedFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.GetAllChambresResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreList parseDelimitedFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllChambresResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllChambresResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ChambreList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllChambresResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12449,7 +11659,7 @@ public final class Hotel {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.ChambreList prototype) {
+    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.GetAllChambresResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -12465,26 +11675,26 @@ public final class Hotel {
       return builder;
     }
     /**
-     * Protobuf type {@code ChambreList}
+     * Protobuf type {@code GetAllChambresResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ChambreList)
-        org.example.projetglobal.stubs.Hotel.ChambreListOrBuilder {
+        // @@protoc_insertion_point(builder_implements:GetAllChambresResponse)
+        org.example.projetglobal.stubs.Hotel.GetAllChambresResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ChambreList_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_GetAllChambresResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ChambreList_fieldAccessorTable
+        return org.example.projetglobal.stubs.Hotel.internal_static_GetAllChambresResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.example.projetglobal.stubs.Hotel.ChambreList.class, org.example.projetglobal.stubs.Hotel.ChambreList.Builder.class);
+                org.example.projetglobal.stubs.Hotel.GetAllChambresResponse.class, org.example.projetglobal.stubs.Hotel.GetAllChambresResponse.Builder.class);
       }
 
-      // Construct using org.example.projetglobal.stubs.Hotel.ChambreList.newBuilder()
+      // Construct using org.example.projetglobal.stubs.Hotel.GetAllChambresResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12515,17 +11725,17 @@ public final class Hotel {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ChambreList_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_GetAllChambresResponse_descriptor;
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ChambreList getDefaultInstanceForType() {
-        return org.example.projetglobal.stubs.Hotel.ChambreList.getDefaultInstance();
+      public org.example.projetglobal.stubs.Hotel.GetAllChambresResponse getDefaultInstanceForType() {
+        return org.example.projetglobal.stubs.Hotel.GetAllChambresResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ChambreList build() {
-        org.example.projetglobal.stubs.Hotel.ChambreList result = buildPartial();
+      public org.example.projetglobal.stubs.Hotel.GetAllChambresResponse build() {
+        org.example.projetglobal.stubs.Hotel.GetAllChambresResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -12533,8 +11743,8 @@ public final class Hotel {
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ChambreList buildPartial() {
-        org.example.projetglobal.stubs.Hotel.ChambreList result = new org.example.projetglobal.stubs.Hotel.ChambreList(this);
+      public org.example.projetglobal.stubs.Hotel.GetAllChambresResponse buildPartial() {
+        org.example.projetglobal.stubs.Hotel.GetAllChambresResponse result = new org.example.projetglobal.stubs.Hotel.GetAllChambresResponse(this);
         int from_bitField0_ = bitField0_;
         if (chambresBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
@@ -12583,16 +11793,16 @@ public final class Hotel {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.example.projetglobal.stubs.Hotel.ChambreList) {
-          return mergeFrom((org.example.projetglobal.stubs.Hotel.ChambreList)other);
+        if (other instanceof org.example.projetglobal.stubs.Hotel.GetAllChambresResponse) {
+          return mergeFrom((org.example.projetglobal.stubs.Hotel.GetAllChambresResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.ChambreList other) {
-        if (other == org.example.projetglobal.stubs.Hotel.ChambreList.getDefaultInstance()) return this;
+      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.GetAllChambresResponse other) {
+        if (other == org.example.projetglobal.stubs.Hotel.GetAllChambresResponse.getDefaultInstance()) return this;
         if (chambresBuilder_ == null) {
           if (!other.chambres_.isEmpty()) {
             if (chambres_.isEmpty()) {
@@ -12634,11 +11844,11 @@ public final class Hotel {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.example.projetglobal.stubs.Hotel.ChambreList parsedMessage = null;
+        org.example.projetglobal.stubs.Hotel.GetAllChambresResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.example.projetglobal.stubs.Hotel.ChambreList) e.getUnfinishedMessage();
+          parsedMessage = (org.example.projetglobal.stubs.Hotel.GetAllChambresResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -12901,48 +12111,48 @@ public final class Hotel {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ChambreList)
+      // @@protoc_insertion_point(builder_scope:GetAllChambresResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:ChambreList)
-    private static final org.example.projetglobal.stubs.Hotel.ChambreList DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:GetAllChambresResponse)
+    private static final org.example.projetglobal.stubs.Hotel.GetAllChambresResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.ChambreList();
+      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.GetAllChambresResponse();
     }
 
-    public static org.example.projetglobal.stubs.Hotel.ChambreList getDefaultInstance() {
+    public static org.example.projetglobal.stubs.Hotel.GetAllChambresResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ChambreList>
-        PARSER = new com.google.protobuf.AbstractParser<ChambreList>() {
+    private static final com.google.protobuf.Parser<GetAllChambresResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetAllChambresResponse>() {
       @java.lang.Override
-      public ChambreList parsePartialFrom(
+      public GetAllChambresResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ChambreList(input, extensionRegistry);
+        return new GetAllChambresResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ChambreList> parser() {
+    public static com.google.protobuf.Parser<GetAllChambresResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ChambreList> getParserForType() {
+    public com.google.protobuf.Parser<GetAllChambresResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public org.example.projetglobal.stubs.Hotel.ChambreList getDefaultInstanceForType() {
+    public org.example.projetglobal.stubs.Hotel.GetAllChambresResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface ReservationListOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ReservationList)
+  public interface GetAllReservationsResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GetAllReservationsResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -12970,18 +12180,18 @@ public final class Hotel {
         int index);
   }
   /**
-   * Protobuf type {@code ReservationList}
+   * Protobuf type {@code GetAllReservationsResponse}
    */
-  public  static final class ReservationList extends
+  public  static final class GetAllReservationsResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ReservationList)
-      ReservationListOrBuilder {
+      // @@protoc_insertion_point(message_implements:GetAllReservationsResponse)
+      GetAllReservationsResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ReservationList.newBuilder() to construct.
-    private ReservationList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GetAllReservationsResponse.newBuilder() to construct.
+    private GetAllReservationsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ReservationList() {
+    private GetAllReservationsResponse() {
       reservations_ = java.util.Collections.emptyList();
     }
 
@@ -12989,7 +12199,7 @@ public final class Hotel {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ReservationList();
+      return new GetAllReservationsResponse();
     }
 
     @java.lang.Override
@@ -12997,7 +12207,7 @@ public final class Hotel {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ReservationList(
+    private GetAllReservationsResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -13049,15 +12259,15 @@ public final class Hotel {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_ReservationList_descriptor;
+      return org.example.projetglobal.stubs.Hotel.internal_static_GetAllReservationsResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_ReservationList_fieldAccessorTable
+      return org.example.projetglobal.stubs.Hotel.internal_static_GetAllReservationsResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.example.projetglobal.stubs.Hotel.ReservationList.class, org.example.projetglobal.stubs.Hotel.ReservationList.Builder.class);
+              org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse.class, org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse.Builder.class);
     }
 
     public static final int RESERVATIONS_FIELD_NUMBER = 1;
@@ -13135,10 +12345,10 @@ public final class Hotel {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.ReservationList)) {
+      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse)) {
         return super.equals(obj);
       }
-      org.example.projetglobal.stubs.Hotel.ReservationList other = (org.example.projetglobal.stubs.Hotel.ReservationList) obj;
+      org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse other = (org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse) obj;
 
       if (!getReservationsList()
           .equals(other.getReservationsList())) return false;
@@ -13162,69 +12372,69 @@ public final class Hotel {
       return hash;
     }
 
-    public static org.example.projetglobal.stubs.Hotel.ReservationList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationList parseFrom(byte[] data)
+    public static org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationList parseFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationList parseDelimitedFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationList parseDelimitedFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.ReservationList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -13237,7 +12447,7 @@ public final class Hotel {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.ReservationList prototype) {
+    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -13253,26 +12463,26 @@ public final class Hotel {
       return builder;
     }
     /**
-     * Protobuf type {@code ReservationList}
+     * Protobuf type {@code GetAllReservationsResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ReservationList)
-        org.example.projetglobal.stubs.Hotel.ReservationListOrBuilder {
+        // @@protoc_insertion_point(builder_implements:GetAllReservationsResponse)
+        org.example.projetglobal.stubs.Hotel.GetAllReservationsResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ReservationList_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_GetAllReservationsResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ReservationList_fieldAccessorTable
+        return org.example.projetglobal.stubs.Hotel.internal_static_GetAllReservationsResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.example.projetglobal.stubs.Hotel.ReservationList.class, org.example.projetglobal.stubs.Hotel.ReservationList.Builder.class);
+                org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse.class, org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse.Builder.class);
       }
 
-      // Construct using org.example.projetglobal.stubs.Hotel.ReservationList.newBuilder()
+      // Construct using org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -13303,17 +12513,17 @@ public final class Hotel {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_ReservationList_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_GetAllReservationsResponse_descriptor;
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ReservationList getDefaultInstanceForType() {
-        return org.example.projetglobal.stubs.Hotel.ReservationList.getDefaultInstance();
+      public org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse getDefaultInstanceForType() {
+        return org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ReservationList build() {
-        org.example.projetglobal.stubs.Hotel.ReservationList result = buildPartial();
+      public org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse build() {
+        org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -13321,8 +12531,8 @@ public final class Hotel {
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.ReservationList buildPartial() {
-        org.example.projetglobal.stubs.Hotel.ReservationList result = new org.example.projetglobal.stubs.Hotel.ReservationList(this);
+      public org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse buildPartial() {
+        org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse result = new org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse(this);
         int from_bitField0_ = bitField0_;
         if (reservationsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
@@ -13371,16 +12581,16 @@ public final class Hotel {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.example.projetglobal.stubs.Hotel.ReservationList) {
-          return mergeFrom((org.example.projetglobal.stubs.Hotel.ReservationList)other);
+        if (other instanceof org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse) {
+          return mergeFrom((org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.ReservationList other) {
-        if (other == org.example.projetglobal.stubs.Hotel.ReservationList.getDefaultInstance()) return this;
+      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse other) {
+        if (other == org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse.getDefaultInstance()) return this;
         if (reservationsBuilder_ == null) {
           if (!other.reservations_.isEmpty()) {
             if (reservations_.isEmpty()) {
@@ -13422,11 +12632,11 @@ public final class Hotel {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.example.projetglobal.stubs.Hotel.ReservationList parsedMessage = null;
+        org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.example.projetglobal.stubs.Hotel.ReservationList) e.getUnfinishedMessage();
+          parsedMessage = (org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -13689,48 +12899,48 @@ public final class Hotel {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ReservationList)
+      // @@protoc_insertion_point(builder_scope:GetAllReservationsResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:ReservationList)
-    private static final org.example.projetglobal.stubs.Hotel.ReservationList DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:GetAllReservationsResponse)
+    private static final org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.ReservationList();
+      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse();
     }
 
-    public static org.example.projetglobal.stubs.Hotel.ReservationList getDefaultInstance() {
+    public static org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ReservationList>
-        PARSER = new com.google.protobuf.AbstractParser<ReservationList>() {
+    private static final com.google.protobuf.Parser<GetAllReservationsResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetAllReservationsResponse>() {
       @java.lang.Override
-      public ReservationList parsePartialFrom(
+      public GetAllReservationsResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReservationList(input, extensionRegistry);
+        return new GetAllReservationsResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ReservationList> parser() {
+    public static com.google.protobuf.Parser<GetAllReservationsResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ReservationList> getParserForType() {
+    public com.google.protobuf.Parser<GetAllReservationsResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public org.example.projetglobal.stubs.Hotel.ReservationList getDefaultInstanceForType() {
+    public org.example.projetglobal.stubs.Hotel.GetAllReservationsResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface UtilisateurListOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:UtilisateurList)
+  public interface GetAllUtilisateursResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GetAllUtilisateursResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -13758,18 +12968,18 @@ public final class Hotel {
         int index);
   }
   /**
-   * Protobuf type {@code UtilisateurList}
+   * Protobuf type {@code GetAllUtilisateursResponse}
    */
-  public  static final class UtilisateurList extends
+  public  static final class GetAllUtilisateursResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:UtilisateurList)
-      UtilisateurListOrBuilder {
+      // @@protoc_insertion_point(message_implements:GetAllUtilisateursResponse)
+      GetAllUtilisateursResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use UtilisateurList.newBuilder() to construct.
-    private UtilisateurList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use GetAllUtilisateursResponse.newBuilder() to construct.
+    private GetAllUtilisateursResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private UtilisateurList() {
+    private GetAllUtilisateursResponse() {
       utilisateurs_ = java.util.Collections.emptyList();
     }
 
@@ -13777,7 +12987,7 @@ public final class Hotel {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new UtilisateurList();
+      return new GetAllUtilisateursResponse();
     }
 
     @java.lang.Override
@@ -13785,7 +12995,7 @@ public final class Hotel {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private UtilisateurList(
+    private GetAllUtilisateursResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -13837,15 +13047,15 @@ public final class Hotel {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurList_descriptor;
+      return org.example.projetglobal.stubs.Hotel.internal_static_GetAllUtilisateursResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurList_fieldAccessorTable
+      return org.example.projetglobal.stubs.Hotel.internal_static_GetAllUtilisateursResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.example.projetglobal.stubs.Hotel.UtilisateurList.class, org.example.projetglobal.stubs.Hotel.UtilisateurList.Builder.class);
+              org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse.class, org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse.Builder.class);
     }
 
     public static final int UTILISATEURS_FIELD_NUMBER = 1;
@@ -13923,10 +13133,10 @@ public final class Hotel {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.UtilisateurList)) {
+      if (!(obj instanceof org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse)) {
         return super.equals(obj);
       }
-      org.example.projetglobal.stubs.Hotel.UtilisateurList other = (org.example.projetglobal.stubs.Hotel.UtilisateurList) obj;
+      org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse other = (org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse) obj;
 
       if (!getUtilisateursList()
           .equals(other.getUtilisateursList())) return false;
@@ -13950,69 +13160,69 @@ public final class Hotel {
       return hash;
     }
 
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurList parseFrom(byte[] data)
+    public static org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurList parseFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurList parseDelimitedFrom(java.io.InputStream input)
+    public static org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurList parseDelimitedFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurList parseFrom(
+    public static org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -14025,7 +13235,7 @@ public final class Hotel {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.UtilisateurList prototype) {
+    public static Builder newBuilder(org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -14041,26 +13251,26 @@ public final class Hotel {
       return builder;
     }
     /**
-     * Protobuf type {@code UtilisateurList}
+     * Protobuf type {@code GetAllUtilisateursResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:UtilisateurList)
-        org.example.projetglobal.stubs.Hotel.UtilisateurListOrBuilder {
+        // @@protoc_insertion_point(builder_implements:GetAllUtilisateursResponse)
+        org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurList_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_GetAllUtilisateursResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurList_fieldAccessorTable
+        return org.example.projetglobal.stubs.Hotel.internal_static_GetAllUtilisateursResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.example.projetglobal.stubs.Hotel.UtilisateurList.class, org.example.projetglobal.stubs.Hotel.UtilisateurList.Builder.class);
+                org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse.class, org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse.Builder.class);
       }
 
-      // Construct using org.example.projetglobal.stubs.Hotel.UtilisateurList.newBuilder()
+      // Construct using org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -14091,17 +13301,17 @@ public final class Hotel {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.example.projetglobal.stubs.Hotel.internal_static_UtilisateurList_descriptor;
+        return org.example.projetglobal.stubs.Hotel.internal_static_GetAllUtilisateursResponse_descriptor;
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.UtilisateurList getDefaultInstanceForType() {
-        return org.example.projetglobal.stubs.Hotel.UtilisateurList.getDefaultInstance();
+      public org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse getDefaultInstanceForType() {
+        return org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.UtilisateurList build() {
-        org.example.projetglobal.stubs.Hotel.UtilisateurList result = buildPartial();
+      public org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse build() {
+        org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -14109,8 +13319,8 @@ public final class Hotel {
       }
 
       @java.lang.Override
-      public org.example.projetglobal.stubs.Hotel.UtilisateurList buildPartial() {
-        org.example.projetglobal.stubs.Hotel.UtilisateurList result = new org.example.projetglobal.stubs.Hotel.UtilisateurList(this);
+      public org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse buildPartial() {
+        org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse result = new org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse(this);
         int from_bitField0_ = bitField0_;
         if (utilisateursBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
@@ -14159,16 +13369,16 @@ public final class Hotel {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.example.projetglobal.stubs.Hotel.UtilisateurList) {
-          return mergeFrom((org.example.projetglobal.stubs.Hotel.UtilisateurList)other);
+        if (other instanceof org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse) {
+          return mergeFrom((org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.UtilisateurList other) {
-        if (other == org.example.projetglobal.stubs.Hotel.UtilisateurList.getDefaultInstance()) return this;
+      public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse other) {
+        if (other == org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse.getDefaultInstance()) return this;
         if (utilisateursBuilder_ == null) {
           if (!other.utilisateurs_.isEmpty()) {
             if (utilisateurs_.isEmpty()) {
@@ -14210,11 +13420,11 @@ public final class Hotel {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.example.projetglobal.stubs.Hotel.UtilisateurList parsedMessage = null;
+        org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.example.projetglobal.stubs.Hotel.UtilisateurList) e.getUnfinishedMessage();
+          parsedMessage = (org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -14477,41 +13687,41 @@ public final class Hotel {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:UtilisateurList)
+      // @@protoc_insertion_point(builder_scope:GetAllUtilisateursResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:UtilisateurList)
-    private static final org.example.projetglobal.stubs.Hotel.UtilisateurList DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:GetAllUtilisateursResponse)
+    private static final org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.UtilisateurList();
+      DEFAULT_INSTANCE = new org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse();
     }
 
-    public static org.example.projetglobal.stubs.Hotel.UtilisateurList getDefaultInstance() {
+    public static org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<UtilisateurList>
-        PARSER = new com.google.protobuf.AbstractParser<UtilisateurList>() {
+    private static final com.google.protobuf.Parser<GetAllUtilisateursResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetAllUtilisateursResponse>() {
       @java.lang.Override
-      public UtilisateurList parsePartialFrom(
+      public GetAllUtilisateursResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UtilisateurList(input, extensionRegistry);
+        return new GetAllUtilisateursResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<UtilisateurList> parser() {
+    public static com.google.protobuf.Parser<GetAllUtilisateursResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<UtilisateurList> getParserForType() {
+    public com.google.protobuf.Parser<GetAllUtilisateursResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public org.example.projetglobal.stubs.Hotel.UtilisateurList getDefaultInstanceForType() {
+    public org.example.projetglobal.stubs.Hotel.GetAllUtilisateursResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14522,31 +13732,25 @@ public final class Hotel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    java.lang.String getId();
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    long getId();
 
     /**
-     * <code>.ReservationInput reservation = 2;</code>
+     * <code>.ReservationRequest reservation = 2;</code>
      * @return Whether the reservation field is set.
      */
     boolean hasReservation();
     /**
-     * <code>.ReservationInput reservation = 2;</code>
+     * <code>.ReservationRequest reservation = 2;</code>
      * @return The reservation.
      */
-    org.example.projetglobal.stubs.Hotel.ReservationInput getReservation();
+    org.example.projetglobal.stubs.Hotel.ReservationRequest getReservation();
     /**
-     * <code>.ReservationInput reservation = 2;</code>
+     * <code>.ReservationRequest reservation = 2;</code>
      */
-    org.example.projetglobal.stubs.Hotel.ReservationInputOrBuilder getReservationOrBuilder();
+    org.example.projetglobal.stubs.Hotel.ReservationRequestOrBuilder getReservationOrBuilder();
   }
   /**
    * Protobuf type {@code UpdateReservationRequest}
@@ -14561,7 +13765,6 @@ public final class Hotel {
       super(builder);
     }
     private UpdateReservationRequest() {
-      id_ = "";
     }
 
     @java.lang.Override
@@ -14594,18 +13797,17 @@ public final class Hotel {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              id_ = s;
+              id_ = input.readInt64();
               break;
             }
             case 18: {
-              org.example.projetglobal.stubs.Hotel.ReservationInput.Builder subBuilder = null;
+              org.example.projetglobal.stubs.Hotel.ReservationRequest.Builder subBuilder = null;
               if (reservation_ != null) {
                 subBuilder = reservation_.toBuilder();
               }
-              reservation_ = input.readMessage(org.example.projetglobal.stubs.Hotel.ReservationInput.parser(), extensionRegistry);
+              reservation_ = input.readMessage(org.example.projetglobal.stubs.Hotel.ReservationRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(reservation_);
                 reservation_ = subBuilder.buildPartial();
@@ -14646,61 +13848,35 @@ public final class Hotel {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    private long id_;
     /**
-     * <code>string id = 1;</code>
+     * <code>int64 id = 1;</code>
      * @return The id.
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getId() {
+      return id_;
     }
 
     public static final int RESERVATION_FIELD_NUMBER = 2;
-    private org.example.projetglobal.stubs.Hotel.ReservationInput reservation_;
+    private org.example.projetglobal.stubs.Hotel.ReservationRequest reservation_;
     /**
-     * <code>.ReservationInput reservation = 2;</code>
+     * <code>.ReservationRequest reservation = 2;</code>
      * @return Whether the reservation field is set.
      */
     public boolean hasReservation() {
       return reservation_ != null;
     }
     /**
-     * <code>.ReservationInput reservation = 2;</code>
+     * <code>.ReservationRequest reservation = 2;</code>
      * @return The reservation.
      */
-    public org.example.projetglobal.stubs.Hotel.ReservationInput getReservation() {
-      return reservation_ == null ? org.example.projetglobal.stubs.Hotel.ReservationInput.getDefaultInstance() : reservation_;
+    public org.example.projetglobal.stubs.Hotel.ReservationRequest getReservation() {
+      return reservation_ == null ? org.example.projetglobal.stubs.Hotel.ReservationRequest.getDefaultInstance() : reservation_;
     }
     /**
-     * <code>.ReservationInput reservation = 2;</code>
+     * <code>.ReservationRequest reservation = 2;</code>
      */
-    public org.example.projetglobal.stubs.Hotel.ReservationInputOrBuilder getReservationOrBuilder() {
+    public org.example.projetglobal.stubs.Hotel.ReservationRequestOrBuilder getReservationOrBuilder() {
       return getReservation();
     }
 
@@ -14718,8 +13894,8 @@ public final class Hotel {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
       }
       if (reservation_ != null) {
         output.writeMessage(2, getReservation());
@@ -14733,8 +13909,9 @@ public final class Hotel {
       if (size != -1) return size;
 
       size = 0;
-      if (!getIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
       }
       if (reservation_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -14755,8 +13932,8 @@ public final class Hotel {
       }
       org.example.projetglobal.stubs.Hotel.UpdateReservationRequest other = (org.example.projetglobal.stubs.Hotel.UpdateReservationRequest) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getId()
+          != other.getId()) return false;
       if (hasReservation() != other.hasReservation()) return false;
       if (hasReservation()) {
         if (!getReservation()
@@ -14774,7 +13951,8 @@ public final class Hotel {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       if (hasReservation()) {
         hash = (37 * hash) + RESERVATION_FIELD_NUMBER;
         hash = (53 * hash) + getReservation().hashCode();
@@ -14912,7 +14090,7 @@ public final class Hotel {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = "";
+        id_ = 0L;
 
         if (reservationBuilder_ == null) {
           reservation_ = null;
@@ -15000,9 +14178,8 @@ public final class Hotel {
 
       public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.UpdateReservationRequest other) {
         if (other == org.example.projetglobal.stubs.Hotel.UpdateReservationRequest.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          onChanged();
+        if (other.getId() != 0L) {
+          setId(other.getId());
         }
         if (other.hasReservation()) {
           mergeReservation(other.getReservation());
@@ -15036,107 +14213,61 @@ public final class Hotel {
         return this;
       }
 
-      private java.lang.Object id_ = "";
+      private long id_ ;
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public long getId() {
+        return id_;
       }
       /**
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setId(long value) {
+        
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 1;</code>
+       * <code>int64 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
         
-        id_ = getDefaultInstance().getId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        id_ = value;
+        id_ = 0L;
         onChanged();
         return this;
       }
 
-      private org.example.projetglobal.stubs.Hotel.ReservationInput reservation_;
+      private org.example.projetglobal.stubs.Hotel.ReservationRequest reservation_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.example.projetglobal.stubs.Hotel.ReservationInput, org.example.projetglobal.stubs.Hotel.ReservationInput.Builder, org.example.projetglobal.stubs.Hotel.ReservationInputOrBuilder> reservationBuilder_;
+          org.example.projetglobal.stubs.Hotel.ReservationRequest, org.example.projetglobal.stubs.Hotel.ReservationRequest.Builder, org.example.projetglobal.stubs.Hotel.ReservationRequestOrBuilder> reservationBuilder_;
       /**
-       * <code>.ReservationInput reservation = 2;</code>
+       * <code>.ReservationRequest reservation = 2;</code>
        * @return Whether the reservation field is set.
        */
       public boolean hasReservation() {
         return reservationBuilder_ != null || reservation_ != null;
       }
       /**
-       * <code>.ReservationInput reservation = 2;</code>
+       * <code>.ReservationRequest reservation = 2;</code>
        * @return The reservation.
        */
-      public org.example.projetglobal.stubs.Hotel.ReservationInput getReservation() {
+      public org.example.projetglobal.stubs.Hotel.ReservationRequest getReservation() {
         if (reservationBuilder_ == null) {
-          return reservation_ == null ? org.example.projetglobal.stubs.Hotel.ReservationInput.getDefaultInstance() : reservation_;
+          return reservation_ == null ? org.example.projetglobal.stubs.Hotel.ReservationRequest.getDefaultInstance() : reservation_;
         } else {
           return reservationBuilder_.getMessage();
         }
       }
       /**
-       * <code>.ReservationInput reservation = 2;</code>
+       * <code>.ReservationRequest reservation = 2;</code>
        */
-      public Builder setReservation(org.example.projetglobal.stubs.Hotel.ReservationInput value) {
+      public Builder setReservation(org.example.projetglobal.stubs.Hotel.ReservationRequest value) {
         if (reservationBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -15150,10 +14281,10 @@ public final class Hotel {
         return this;
       }
       /**
-       * <code>.ReservationInput reservation = 2;</code>
+       * <code>.ReservationRequest reservation = 2;</code>
        */
       public Builder setReservation(
-          org.example.projetglobal.stubs.Hotel.ReservationInput.Builder builderForValue) {
+          org.example.projetglobal.stubs.Hotel.ReservationRequest.Builder builderForValue) {
         if (reservationBuilder_ == null) {
           reservation_ = builderForValue.build();
           onChanged();
@@ -15164,13 +14295,13 @@ public final class Hotel {
         return this;
       }
       /**
-       * <code>.ReservationInput reservation = 2;</code>
+       * <code>.ReservationRequest reservation = 2;</code>
        */
-      public Builder mergeReservation(org.example.projetglobal.stubs.Hotel.ReservationInput value) {
+      public Builder mergeReservation(org.example.projetglobal.stubs.Hotel.ReservationRequest value) {
         if (reservationBuilder_ == null) {
           if (reservation_ != null) {
             reservation_ =
-              org.example.projetglobal.stubs.Hotel.ReservationInput.newBuilder(reservation_).mergeFrom(value).buildPartial();
+              org.example.projetglobal.stubs.Hotel.ReservationRequest.newBuilder(reservation_).mergeFrom(value).buildPartial();
           } else {
             reservation_ = value;
           }
@@ -15182,7 +14313,7 @@ public final class Hotel {
         return this;
       }
       /**
-       * <code>.ReservationInput reservation = 2;</code>
+       * <code>.ReservationRequest reservation = 2;</code>
        */
       public Builder clearReservation() {
         if (reservationBuilder_ == null) {
@@ -15196,33 +14327,33 @@ public final class Hotel {
         return this;
       }
       /**
-       * <code>.ReservationInput reservation = 2;</code>
+       * <code>.ReservationRequest reservation = 2;</code>
        */
-      public org.example.projetglobal.stubs.Hotel.ReservationInput.Builder getReservationBuilder() {
+      public org.example.projetglobal.stubs.Hotel.ReservationRequest.Builder getReservationBuilder() {
         
         onChanged();
         return getReservationFieldBuilder().getBuilder();
       }
       /**
-       * <code>.ReservationInput reservation = 2;</code>
+       * <code>.ReservationRequest reservation = 2;</code>
        */
-      public org.example.projetglobal.stubs.Hotel.ReservationInputOrBuilder getReservationOrBuilder() {
+      public org.example.projetglobal.stubs.Hotel.ReservationRequestOrBuilder getReservationOrBuilder() {
         if (reservationBuilder_ != null) {
           return reservationBuilder_.getMessageOrBuilder();
         } else {
           return reservation_ == null ?
-              org.example.projetglobal.stubs.Hotel.ReservationInput.getDefaultInstance() : reservation_;
+              org.example.projetglobal.stubs.Hotel.ReservationRequest.getDefaultInstance() : reservation_;
         }
       }
       /**
-       * <code>.ReservationInput reservation = 2;</code>
+       * <code>.ReservationRequest reservation = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          org.example.projetglobal.stubs.Hotel.ReservationInput, org.example.projetglobal.stubs.Hotel.ReservationInput.Builder, org.example.projetglobal.stubs.Hotel.ReservationInputOrBuilder> 
+          org.example.projetglobal.stubs.Hotel.ReservationRequest, org.example.projetglobal.stubs.Hotel.ReservationRequest.Builder, org.example.projetglobal.stubs.Hotel.ReservationRequestOrBuilder> 
           getReservationFieldBuilder() {
         if (reservationBuilder_ == null) {
           reservationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.example.projetglobal.stubs.Hotel.ReservationInput, org.example.projetglobal.stubs.Hotel.ReservationInput.Builder, org.example.projetglobal.stubs.Hotel.ReservationInputOrBuilder>(
+              org.example.projetglobal.stubs.Hotel.ReservationRequest, org.example.projetglobal.stubs.Hotel.ReservationRequest.Builder, org.example.projetglobal.stubs.Hotel.ReservationRequestOrBuilder>(
                   getReservation(),
                   getParentForChildren(),
                   isClean());
@@ -15304,25 +14435,25 @@ public final class Hotel {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Utilisateur_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ClientInput_descriptor;
+    internal_static_ClientRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ClientInput_fieldAccessorTable;
+      internal_static_ClientRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ChambreInput_descriptor;
+    internal_static_ChambreRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ChambreInput_fieldAccessorTable;
+      internal_static_ChambreRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ReservationInput_descriptor;
+    internal_static_ReservationRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ReservationInput_fieldAccessorTable;
+      internal_static_ReservationRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_UtilisateurInput_descriptor;
+    internal_static_UtilisateurRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_UtilisateurInput_fieldAccessorTable;
+      internal_static_UtilisateurRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Empty_descriptor;
   private static final 
@@ -15354,25 +14485,25 @@ public final class Hotel {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_BoolResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ClientList_descriptor;
+    internal_static_GetAllClientsResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ClientList_fieldAccessorTable;
+      internal_static_GetAllClientsResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ChambreList_descriptor;
+    internal_static_GetAllChambresResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ChambreList_fieldAccessorTable;
+      internal_static_GetAllChambresResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ReservationList_descriptor;
+    internal_static_GetAllReservationsResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ReservationList_fieldAccessorTable;
+      internal_static_GetAllReservationsResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_UtilisateurList_descriptor;
+    internal_static_GetAllUtilisateursResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_UtilisateurList_fieldAccessorTable;
+      internal_static_GetAllUtilisateursResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_UpdateReservationRequest_descriptor;
   private static final 
@@ -15387,58 +14518,60 @@ public final class Hotel {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013hotel.proto\"S\n\006Client\022\n\n\002id\030\001 \001(\t\022\013\n\003n" +
+      "\n\013hotel.proto\"S\n\006Client\022\n\n\002id\030\001 \001(\003\022\013\n\003n" +
       "om\030\002 \001(\t\022\016\n\006prenom\030\003 \001(\t\022\r\n\005email\030\004 \001(\t\022" +
       "\021\n\ttelephone\030\005 \001(\t\"E\n\007Chambre\022\n\n\002id\030\001 \001(" +
-      "\t\022\014\n\004type\030\002 \001(\t\022\014\n\004prix\030\003 \001(\002\022\022\n\ndisponi" +
-      "ble\030\004 \001(\010\"\206\001\n\013Reservation\022\n\n\002id\030\001 \001(\t\022\027\n" +
+      "\003\022\014\n\004type\030\002 \001(\t\022\014\n\004prix\030\003 \001(\002\022\022\n\ndisponi" +
+      "ble\030\004 \001(\010\"\206\001\n\013Reservation\022\n\n\002id\030\001 \001(\003\022\027\n" +
       "\006client\030\002 \001(\0132\007.Client\022\031\n\007chambre\030\003 \001(\0132" +
       "\010.Chambre\022\021\n\tdateDebut\030\004 \001(\t\022\017\n\007dateFin\030" +
       "\005 \001(\t\022\023\n\013preferences\030\006 \001(\t\"S\n\013Utilisateu" +
-      "r\022\n\n\002id\030\001 \001(\t\022\026\n\016nomUtilisateur\030\002 \001(\t\022\022\n" +
-      "\nmotDePasse\030\003 \001(\t\022\014\n\004role\030\004 \001(\t\"L\n\013Clien" +
-      "tInput\022\013\n\003nom\030\001 \001(\t\022\016\n\006prenom\030\002 \001(\t\022\r\n\005e" +
-      "mail\030\003 \001(\t\022\021\n\ttelephone\030\004 \001(\t\">\n\014Chambre" +
-      "Input\022\014\n\004type\030\001 \001(\t\022\014\n\004prix\030\002 \001(\002\022\022\n\ndis" +
-      "ponible\030\003 \001(\010\"p\n\020ReservationInput\022\020\n\010cli" +
-      "entId\030\001 \001(\t\022\021\n\tchambreId\030\002 \001(\t\022\021\n\tdateDe" +
-      "but\030\003 \001(\t\022\017\n\007dateFin\030\004 \001(\t\022\023\n\013preference" +
-      "s\030\005 \001(\t\"L\n\020UtilisateurInput\022\026\n\016nomUtilis" +
-      "ateur\030\001 \001(\t\022\022\n\nmotDePasse\030\002 \001(\t\022\014\n\004role\030" +
-      "\003 \001(\t\"\007\n\005Empty\"\035\n\017ClientIdRequest\022\n\n\002id\030" +
-      "\001 \001(\t\"\036\n\020ChambreIdRequest\022\n\n\002id\030\001 \001(\t\"\"\n" +
-      "\024ReservationIdRequest\022\n\n\002id\030\001 \001(\t\"\"\n\024Uti" +
-      "lisateurIdRequest\022\n\n\002id\030\001 \001(\t\"\037\n\014BoolRes" +
-      "ponse\022\017\n\007success\030\001 \001(\010\"&\n\nClientList\022\030\n\007" +
-      "clients\030\001 \003(\0132\007.Client\")\n\013ChambreList\022\032\n" +
-      "\010chambres\030\001 \003(\0132\010.Chambre\"5\n\017Reservation" +
-      "List\022\"\n\014reservations\030\001 \003(\0132\014.Reservation" +
-      "\"5\n\017UtilisateurList\022\"\n\014utilisateurs\030\001 \003(" +
-      "\0132\014.Utilisateur\"N\n\030UpdateReservationRequ" +
-      "est\022\n\n\002id\030\001 \001(\t\022&\n\013reservation\030\002 \001(\0132\021.R" +
-      "eservationInput2\302\006\n\014HotelService\022!\n\nallC" +
-      "lients\022\006.Empty\032\013.ClientList\022\'\n\nclientByI" +
-      "d\022\020.ClientIdRequest\032\007.Client\022#\n\nsaveClie" +
-      "nt\022\014.ClientInput\032\007.Client\022/\n\014deleteClien" +
-      "t\022\020.ClientIdRequest\032\r.BoolResponse\022#\n\013al" +
-      "lChambres\022\006.Empty\032\014.ChambreList\022*\n\013chamb" +
-      "reById\022\021.ChambreIdRequest\032\010.Chambre\022&\n\013s" +
-      "aveChambre\022\r.ChambreInput\032\010.Chambre\0221\n\rd" +
+      "r\022\n\n\002id\030\001 \001(\003\022\026\n\016nomUtilisateur\030\002 \001(\t\022\022\n" +
+      "\nmotDePasse\030\003 \001(\t\022\014\n\004role\030\004 \001(\t\"N\n\rClien" +
+      "tRequest\022\013\n\003nom\030\001 \001(\t\022\016\n\006prenom\030\002 \001(\t\022\r\n" +
+      "\005email\030\003 \001(\t\022\021\n\ttelephone\030\004 \001(\t\"@\n\016Chamb" +
+      "reRequest\022\014\n\004type\030\001 \001(\t\022\014\n\004prix\030\002 \001(\002\022\022\n" +
+      "\ndisponible\030\003 \001(\010\"r\n\022ReservationRequest\022" +
+      "\020\n\010clientId\030\001 \001(\003\022\021\n\tchambreId\030\002 \001(\003\022\021\n\t" +
+      "dateDebut\030\003 \001(\t\022\017\n\007dateFin\030\004 \001(\t\022\023\n\013pref" +
+      "erences\030\005 \001(\t\"N\n\022UtilisateurRequest\022\026\n\016n" +
+      "omUtilisateur\030\001 \001(\t\022\022\n\nmotDePasse\030\002 \001(\t\022" +
+      "\014\n\004role\030\003 \001(\t\"\007\n\005Empty\"\035\n\017ClientIdReques" +
+      "t\022\n\n\002id\030\001 \001(\003\"\036\n\020ChambreIdRequest\022\n\n\002id\030" +
+      "\001 \001(\003\"\"\n\024ReservationIdRequest\022\n\n\002id\030\001 \001(" +
+      "\003\"\"\n\024UtilisateurIdRequest\022\n\n\002id\030\001 \001(\003\"\037\n" +
+      "\014BoolResponse\022\017\n\007success\030\001 \001(\010\"1\n\025GetAll" +
+      "ClientsResponse\022\030\n\007clients\030\001 \003(\0132\007.Clien" +
+      "t\"4\n\026GetAllChambresResponse\022\032\n\010chambres\030" +
+      "\001 \003(\0132\010.Chambre\"@\n\032GetAllReservationsRes" +
+      "ponse\022\"\n\014reservations\030\001 \003(\0132\014.Reservatio" +
+      "n\"@\n\032GetAllUtilisateursResponse\022\"\n\014utili" +
+      "sateurs\030\001 \003(\0132\014.Utilisateur\"P\n\030UpdateRes" +
+      "ervationRequest\022\n\n\002id\030\001 \001(\003\022(\n\013reservati" +
+      "on\030\002 \001(\0132\023.ReservationRequest2\366\006\n\014HotelS" +
+      "ervice\022,\n\nallClients\022\006.Empty\032\026.GetAllCli" +
+      "entsResponse\022\'\n\nclientById\022\020.ClientIdReq" +
+      "uest\032\007.Client\022%\n\nsaveClient\022\016.ClientRequ" +
+      "est\032\007.Client\022/\n\014deleteClient\022\020.ClientIdR" +
+      "equest\032\r.BoolResponse\022.\n\013allChambres\022\006.E" +
+      "mpty\032\027.GetAllChambresResponse\022*\n\013chambre" +
+      "ById\022\021.ChambreIdRequest\032\010.Chambre\022(\n\013sav" +
+      "eChambre\022\017.ChambreRequest\032\010.Chambre\0221\n\rd" +
       "eleteChambre\022\021.ChambreIdRequest\032\r.BoolRe" +
-      "sponse\022+\n\017allUtilisateurs\022\006.Empty\032\020.Util" +
-      "isateurList\0226\n\017utilisateurById\022\025.Utilisa" +
-      "teurIdRequest\032\014.Utilisateur\0222\n\017saveUtili" +
-      "sateur\022\021.UtilisateurInput\032\014.Utilisateur\022" +
-      "9\n\021deleteUtilisateur\022\025.UtilisateurIdRequ" +
-      "est\032\r.BoolResponse\022+\n\017allReservations\022\006." +
-      "Empty\032\020.ReservationList\0226\n\017reservationBy" +
-      "Id\022\025.ReservationIdRequest\032\014.Reservation\022" +
-      "2\n\017saveReservation\022\021.ReservationInput\032\014." +
-      "Reservation\0229\n\021deleteReservation\022\025.Reser" +
-      "vationIdRequest\032\r.BoolResponse\022<\n\021update" +
-      "Reservation\022\031.UpdateReservationRequest\032\014" +
-      ".ReservationB \n\036org.example.projetglobal" +
-      ".stubsb\006proto3"
+      "sponse\0226\n\017allUtilisateurs\022\006.Empty\032\033.GetA" +
+      "llUtilisateursResponse\0226\n\017utilisateurByI" +
+      "d\022\025.UtilisateurIdRequest\032\014.Utilisateur\0224" +
+      "\n\017saveUtilisateur\022\023.UtilisateurRequest\032\014" +
+      ".Utilisateur\0229\n\021deleteUtilisateur\022\025.Util" +
+      "isateurIdRequest\032\r.BoolResponse\0226\n\017allRe" +
+      "servations\022\006.Empty\032\033.GetAllReservationsR" +
+      "esponse\0226\n\017reservationById\022\025.Reservation" +
+      "IdRequest\032\014.Reservation\0224\n\017saveReservati" +
+      "on\022\023.ReservationRequest\032\014.Reservation\0229\n" +
+      "\021deleteReservation\022\025.ReservationIdReques" +
+      "t\032\r.BoolResponse\022<\n\021updateReservation\022\031." +
+      "UpdateReservationRequest\032\014.ReservationB " +
+      "\n\036org.example.projetglobal.stubsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15468,29 +14601,29 @@ public final class Hotel {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Utilisateur_descriptor,
         new java.lang.String[] { "Id", "NomUtilisateur", "MotDePasse", "Role", });
-    internal_static_ClientInput_descriptor =
+    internal_static_ClientRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_ClientInput_fieldAccessorTable = new
+    internal_static_ClientRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ClientInput_descriptor,
+        internal_static_ClientRequest_descriptor,
         new java.lang.String[] { "Nom", "Prenom", "Email", "Telephone", });
-    internal_static_ChambreInput_descriptor =
+    internal_static_ChambreRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_ChambreInput_fieldAccessorTable = new
+    internal_static_ChambreRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ChambreInput_descriptor,
+        internal_static_ChambreRequest_descriptor,
         new java.lang.String[] { "Type", "Prix", "Disponible", });
-    internal_static_ReservationInput_descriptor =
+    internal_static_ReservationRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_ReservationInput_fieldAccessorTable = new
+    internal_static_ReservationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ReservationInput_descriptor,
+        internal_static_ReservationRequest_descriptor,
         new java.lang.String[] { "ClientId", "ChambreId", "DateDebut", "DateFin", "Preferences", });
-    internal_static_UtilisateurInput_descriptor =
+    internal_static_UtilisateurRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_UtilisateurInput_fieldAccessorTable = new
+    internal_static_UtilisateurRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_UtilisateurInput_descriptor,
+        internal_static_UtilisateurRequest_descriptor,
         new java.lang.String[] { "NomUtilisateur", "MotDePasse", "Role", });
     internal_static_Empty_descriptor =
       getDescriptor().getMessageTypes().get(8);
@@ -15528,29 +14661,29 @@ public final class Hotel {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_BoolResponse_descriptor,
         new java.lang.String[] { "Success", });
-    internal_static_ClientList_descriptor =
+    internal_static_GetAllClientsResponse_descriptor =
       getDescriptor().getMessageTypes().get(14);
-    internal_static_ClientList_fieldAccessorTable = new
+    internal_static_GetAllClientsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ClientList_descriptor,
+        internal_static_GetAllClientsResponse_descriptor,
         new java.lang.String[] { "Clients", });
-    internal_static_ChambreList_descriptor =
+    internal_static_GetAllChambresResponse_descriptor =
       getDescriptor().getMessageTypes().get(15);
-    internal_static_ChambreList_fieldAccessorTable = new
+    internal_static_GetAllChambresResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ChambreList_descriptor,
+        internal_static_GetAllChambresResponse_descriptor,
         new java.lang.String[] { "Chambres", });
-    internal_static_ReservationList_descriptor =
+    internal_static_GetAllReservationsResponse_descriptor =
       getDescriptor().getMessageTypes().get(16);
-    internal_static_ReservationList_fieldAccessorTable = new
+    internal_static_GetAllReservationsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ReservationList_descriptor,
+        internal_static_GetAllReservationsResponse_descriptor,
         new java.lang.String[] { "Reservations", });
-    internal_static_UtilisateurList_descriptor =
+    internal_static_GetAllUtilisateursResponse_descriptor =
       getDescriptor().getMessageTypes().get(17);
-    internal_static_UtilisateurList_fieldAccessorTable = new
+    internal_static_GetAllUtilisateursResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_UtilisateurList_descriptor,
+        internal_static_GetAllUtilisateursResponse_descriptor,
         new java.lang.String[] { "Utilisateurs", });
     internal_static_UpdateReservationRequest_descriptor =
       getDescriptor().getMessageTypes().get(18);
