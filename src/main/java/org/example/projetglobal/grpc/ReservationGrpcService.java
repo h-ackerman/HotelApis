@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @GrpcService
@@ -54,17 +55,45 @@ public class ReservationGrpcService extends HotelServiceGrpc.HotelServiceImplBas
                 .build();
     }
 
+    // working
     @Override
     public void allReservations(Hotel.Empty request, StreamObserver<Hotel.GetAllReservationsResponse> responseObserver) {
-//        List<Reservation> reservations = reservationRepository.findAll();
-//
-//        Hotel.GetAllReservationsResponse.Builder responseBuilder = Hotel.GetAllReservationsResponse.newBuilder();
-//        responseBuilder.addAllReservations(reservations);
-//
-//        responseObserver.onNext(responseBuilder.build());
-//        responseObserver.onCompleted();
+        List<Reservation> reservations = reservationRepository.findAll();
+
+        // Map each domain Reservation to a gRPC Reservation
+        List<Hotel.Reservation> grpcReservations = reservations.stream()
+                .map(reservation -> Hotel.Reservation.newBuilder()
+                        .setId(reservation.getId())
+                        .setClient(Hotel.Client.newBuilder()
+                                .setId(reservation.getClient().getId())
+                                .setNom(reservation.getClient().getNom())
+                                .setPrenom(reservation.getClient().getPrenom())
+                                .setEmail(reservation.getClient().getEmail())
+                                .setTelephone(reservation.getClient().getTelephone())
+                                .build())
+                        .setChambre(Hotel.Chambre.newBuilder()
+                                .setId(reservation.getChambre().getId())
+                                .setType(reservation.getChambre().getType().name())
+                                .setPrix((float)reservation.getChambre().getPrix())
+                                .setDisponible(reservation.getChambre().isDisponible())
+                                .build())
+                        .setDateDebut(reservation.getDateDebut())
+                        .setDateFin(reservation.getDateFin())
+                        .setPreferences(reservation.getPreferences())
+                        .build())
+                .collect(Collectors.toList());
+
+        // Build the response
+        Hotel.GetAllReservationsResponse response = Hotel.GetAllReservationsResponse.newBuilder()
+                .addAllReservations(grpcReservations)
+                .build();
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 
+
+    // working
     @Override
     public void reservationById(Hotel.ReservationIdRequest request, StreamObserver<Hotel.Reservation> responseObserver) {
         Reservation reservation = reservationRepository.findById(request.getId())
@@ -78,6 +107,7 @@ public class ReservationGrpcService extends HotelServiceGrpc.HotelServiceImplBas
         }
     }
 
+    // working
     @Override
     public void saveReservation(Hotel.ReservationRequest request, StreamObserver<Hotel.Reservation> responseObserver) {
         Client client = new Client();
@@ -109,6 +139,8 @@ public class ReservationGrpcService extends HotelServiceGrpc.HotelServiceImplBas
         }
     }
 
+
+    // woking but returns success: false
     @Override
     public void deleteReservation(Hotel.ReservationIdRequest request, StreamObserver<Hotel.BoolResponse> responseObserver){
         reservationRepository.deleteById(request.getId());
@@ -117,20 +149,40 @@ public class ReservationGrpcService extends HotelServiceGrpc.HotelServiceImplBas
         responseObserver.onCompleted();
     }
 
+    // not working
     @Override
     public void updateReservation(Hotel.UpdateReservationRequest request, StreamObserver<Hotel.Reservation> responseObserver) {
         Reservation reservation = reservationRepository.findById(request.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("Reservation not found"));
 
         Hotel.Chambre chambreGrpc = request.getReservation().getChambre();
-
         Chambre chambre = new Chambre();
         chambre.setId(chambreGrpc.getId());
         chambre.setPrix(chambreGrpc.getPrix());
         chambre.setDisponible(chambreGrpc.getDisponible());
         chambre.setType(TypeChambre.valueOf(chambreGrpc.getType()));
 
+        Hotel.Client clientGrpc = request.getReservation().getClient();
+        Client client = new Client();
+        client.setId(clientGrpc.getId());
+        client.setEmail(clientGrpc.getEmail());
+        client.setNom(clientGrpc.getNom());
+        client.setPrenom(clientGrpc.getPrenom());
+        client.setTelephone(client.getTelephone());
+
+
+        reservation.setPreferences(request.getReservation().getPreferences());
+        reservation.setDateFin(request.getReservation().getDateFin());
+        reservation.setDateDebut(request.getReservation().getDateDebut());
+        reservation.setClient(client);
         reservation.setChambre(chambre);
+
+        reservationRepository.save(reservation);
+        Hotel.Reservation grpcReservation = entityToGrpc(reservation);
+
+        responseObserver.onNext(grpcReservation);
+        responseObserver.onCompleted();
+
     }
 
 }

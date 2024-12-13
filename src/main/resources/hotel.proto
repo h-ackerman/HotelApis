@@ -46,6 +46,12 @@ message ChambreRequest {
   bool disponible = 3;
 }
 
+message UtilisateurRequest {
+  string nomUtilisateur = 1;
+  string motDePasse = 2;
+  string role = 3;
+}
+
 message ReservationRequest {
   Client client = 1;
   Chambre chambre = 2;
@@ -54,12 +60,10 @@ message ReservationRequest {
   string preferences = 5;
 }
 
-message UtilisateurRequest {
-  string nomUtilisateur = 1;
-  string motDePasse = 2;
-  string role = 3;
+message UpdateReservationRequest {
+  int64 id = 1;
+  ReservationRequest reservation = 2;
 }
-
 
 service HotelService {
   // Clients services
@@ -111,7 +115,6 @@ message BoolResponse {
   bool success = 1;
 }
 
-// Define list responses
 message GetAllClientsResponse {
   repeated Client clients = 1;
 }
@@ -128,7 +131,4 @@ message GetAllUtilisateursResponse {
   repeated Utilisateur utilisateurs = 1;
 }
 
-message UpdateReservationRequest {
-  int64 id = 1;
-  ReservationRequest reservation = 2;
-}
+
