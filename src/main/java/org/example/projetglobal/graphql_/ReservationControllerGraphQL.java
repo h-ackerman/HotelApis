@@ -1,5 +1,6 @@
 package org.example.projetglobal.graphql_;
 
+import org.example.projetglobal.dto.ReservationInput;
 import org.example.projetglobal.entities.Chambre;
 import org.example.projetglobal.entities.Client;
 import org.example.projetglobal.entities.Reservation;
@@ -10,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
@@ -42,31 +42,44 @@ public class ReservationControllerGraphQL {
     }
 
     @MutationMapping
-    public Reservation saveReservation(@Argument Reservation reservation) {
+    public Reservation saveReservation(@Argument("reservation") ReservationInput reservationInput) {
+        Client client = clientRepository.findById(reservationInput.getClientId())
+                .orElseThrow(() -> new RuntimeException("Client not found"));
+
+        Chambre chambre = chambreRepository.findById(reservationInput.getChambreId())
+                .orElseThrow(() -> new RuntimeException("Chambre not found"));
+
+        if (!chambre.isDisponible()) {
+            throw new RuntimeException("Chambre is not available");
+        }
+
+        Reservation reservation = new Reservation();
+        reservation.setClient(client);
+        reservation.setChambre(chambre);
+        reservation.setDateDebut(reservationInput.getDateDebut());
+        reservation.setDateFin(reservationInput.getDateFin());
+        reservation.setPreferences(reservationInput.getPreferences());
+
         return reservationRepository.save(reservation);
     }
 
     @MutationMapping
-    public boolean deleteReservation(@Argument Long id) {
-        if(reservationRepository.existsById(id)) {
-            reservationRepository.deleteById(id);
-            return true;
-        } return false;
-    }
-
-    public Reservation updateReservation(Long id, Reservation updateInput) {
-        // Find the reservation by ID
+    public Reservation updateReservation(@Argument Long id, @Argument("reservation") ReservationInput updateInput) {
         Reservation reservation = reservationRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Reservation not found"));
 
+        Client client = clientRepository.findById(updateInput.getClientId())
+                .orElseThrow(() -> new RuntimeException("Client not found"));
+
+        Chambre chambre = chambreRepository.findById(updateInput.getChambreId())
+                .orElseThrow(() -> new RuntimeException("Chambre not found"));
+
         // Update fields if they are provided in the input
-        if (updateInput.getClient() != null) {
-            Client client = updateInput.getClient();
+        if (updateInput.getClientId() != null) {
             reservation.setClient(client);
         }
 
-        if (updateInput.getChambre() != null) {
-            Chambre chambre = updateInput.getChambre();
+        if (updateInput.getChambreId() != null) {
             reservation.setChambre(chambre);
         }
 
@@ -82,8 +95,14 @@ public class ReservationControllerGraphQL {
             reservation.setPreferences(updateInput.getPreferences());
         }
 
-        // Save and return the updated reservation
         return reservationRepository.save(reservation);
     }
 
+    @MutationMapping
+    public boolean deleteReservation(@Argument Long id) {
+        if(reservationRepository.existsById(id)) {
+            reservationRepository.deleteById(id);
+            return true;
+        } return false;
+    }
 }

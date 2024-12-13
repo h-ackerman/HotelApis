@@ -47,8 +47,8 @@ message ChambreRequest {
 }
 
 message ReservationRequest {
-  int64 clientId = 1;
-  int64 chambreId = 2;
+  Client client = 1;
+  Chambre chambre = 2;
   string dateDebut = 3;
   string dateFin = 4;
   string preferences = 5;

@@ -37,6 +37,10 @@ public class Reservation {
         this.preferences = preferences;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Client getClient() {
         return client;
     }

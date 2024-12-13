@@ -28,6 +28,10 @@ public class Utilisateur {
         this.role = role;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNomUtilisateur() {
         return nomUtilisateur;
     }

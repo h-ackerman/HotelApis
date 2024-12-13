@@ -5849,16 +5849,34 @@ public final class Hotel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 clientId = 1;</code>
-     * @return The clientId.
+     * <code>.Client client = 1;</code>
+     * @return Whether the client field is set.
      */
-    long getClientId();
+    boolean hasClient();
+    /**
+     * <code>.Client client = 1;</code>
+     * @return The client.
+     */
+    org.example.projetglobal.stubs.Hotel.Client getClient();
+    /**
+     * <code>.Client client = 1;</code>
+     */
+    org.example.projetglobal.stubs.Hotel.ClientOrBuilder getClientOrBuilder();
 
     /**
-     * <code>int64 chambreId = 2;</code>
-     * @return The chambreId.
+     * <code>.Chambre chambre = 2;</code>
+     * @return Whether the chambre field is set.
      */
-    long getChambreId();
+    boolean hasChambre();
+    /**
+     * <code>.Chambre chambre = 2;</code>
+     * @return The chambre.
+     */
+    org.example.projetglobal.stubs.Hotel.Chambre getChambre();
+    /**
+     * <code>.Chambre chambre = 2;</code>
+     */
+    org.example.projetglobal.stubs.Hotel.ChambreOrBuilder getChambreOrBuilder();
 
     /**
      * <code>string dateDebut = 3;</code>
@@ -5944,14 +5962,30 @@ public final class Hotel {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
+              org.example.projetglobal.stubs.Hotel.Client.Builder subBuilder = null;
+              if (client_ != null) {
+                subBuilder = client_.toBuilder();
+              }
+              client_ = input.readMessage(org.example.projetglobal.stubs.Hotel.Client.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(client_);
+                client_ = subBuilder.buildPartial();
+              }
 
-              clientId_ = input.readInt64();
               break;
             }
-            case 16: {
+            case 18: {
+              org.example.projetglobal.stubs.Hotel.Chambre.Builder subBuilder = null;
+              if (chambre_ != null) {
+                subBuilder = chambre_.toBuilder();
+              }
+              chambre_ = input.readMessage(org.example.projetglobal.stubs.Hotel.Chambre.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(chambre_);
+                chambre_ = subBuilder.buildPartial();
+              }
 
-              chambreId_ = input.readInt64();
               break;
             }
             case 26: {
@@ -6004,24 +6038,50 @@ public final class Hotel {
               org.example.projetglobal.stubs.Hotel.ReservationRequest.class, org.example.projetglobal.stubs.Hotel.ReservationRequest.Builder.class);
     }
 
-    public static final int CLIENTID_FIELD_NUMBER = 1;
-    private long clientId_;
+    public static final int CLIENT_FIELD_NUMBER = 1;
+    private org.example.projetglobal.stubs.Hotel.Client client_;
     /**
-     * <code>int64 clientId = 1;</code>
-     * @return The clientId.
+     * <code>.Client client = 1;</code>
+     * @return Whether the client field is set.
      */
-    public long getClientId() {
-      return clientId_;
+    public boolean hasClient() {
+      return client_ != null;
+    }
+    /**
+     * <code>.Client client = 1;</code>
+     * @return The client.
+     */
+    public org.example.projetglobal.stubs.Hotel.Client getClient() {
+      return client_ == null ? org.example.projetglobal.stubs.Hotel.Client.getDefaultInstance() : client_;
+    }
+    /**
+     * <code>.Client client = 1;</code>
+     */
+    public org.example.projetglobal.stubs.Hotel.ClientOrBuilder getClientOrBuilder() {
+      return getClient();
     }
 
-    public static final int CHAMBREID_FIELD_NUMBER = 2;
-    private long chambreId_;
+    public static final int CHAMBRE_FIELD_NUMBER = 2;
+    private org.example.projetglobal.stubs.Hotel.Chambre chambre_;
     /**
-     * <code>int64 chambreId = 2;</code>
-     * @return The chambreId.
+     * <code>.Chambre chambre = 2;</code>
+     * @return Whether the chambre field is set.
      */
-    public long getChambreId() {
-      return chambreId_;
+    public boolean hasChambre() {
+      return chambre_ != null;
+    }
+    /**
+     * <code>.Chambre chambre = 2;</code>
+     * @return The chambre.
+     */
+    public org.example.projetglobal.stubs.Hotel.Chambre getChambre() {
+      return chambre_ == null ? org.example.projetglobal.stubs.Hotel.Chambre.getDefaultInstance() : chambre_;
+    }
+    /**
+     * <code>.Chambre chambre = 2;</code>
+     */
+    public org.example.projetglobal.stubs.Hotel.ChambreOrBuilder getChambreOrBuilder() {
+      return getChambre();
     }
 
     public static final int DATEDEBUT_FIELD_NUMBER = 3;
@@ -6146,11 +6206,11 @@ public final class Hotel {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (clientId_ != 0L) {
-        output.writeInt64(1, clientId_);
+      if (client_ != null) {
+        output.writeMessage(1, getClient());
       }
-      if (chambreId_ != 0L) {
-        output.writeInt64(2, chambreId_);
+      if (chambre_ != null) {
+        output.writeMessage(2, getChambre());
       }
       if (!getDateDebutBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, dateDebut_);
@@ -6170,13 +6230,13 @@ public final class Hotel {
       if (size != -1) return size;
 
       size = 0;
-      if (clientId_ != 0L) {
+      if (client_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, clientId_);
+          .computeMessageSize(1, getClient());
       }
-      if (chambreId_ != 0L) {
+      if (chambre_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, chambreId_);
+          .computeMessageSize(2, getChambre());
       }
       if (!getDateDebutBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, dateDebut_);
@@ -6202,10 +6262,16 @@ public final class Hotel {
       }
       org.example.projetglobal.stubs.Hotel.ReservationRequest other = (org.example.projetglobal.stubs.Hotel.ReservationRequest) obj;
 
-      if (getClientId()
-          != other.getClientId()) return false;
-      if (getChambreId()
-          != other.getChambreId()) return false;
+      if (hasClient() != other.hasClient()) return false;
+      if (hasClient()) {
+        if (!getClient()
+            .equals(other.getClient())) return false;
+      }
+      if (hasChambre() != other.hasChambre()) return false;
+      if (hasChambre()) {
+        if (!getChambre()
+            .equals(other.getChambre())) return false;
+      }
       if (!getDateDebut()
           .equals(other.getDateDebut())) return false;
       if (!getDateFin()
@@ -6223,12 +6289,14 @@ public final class Hotel {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CLIENTID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getClientId());
-      hash = (37 * hash) + CHAMBREID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getChambreId());
+      if (hasClient()) {
+        hash = (37 * hash) + CLIENT_FIELD_NUMBER;
+        hash = (53 * hash) + getClient().hashCode();
+      }
+      if (hasChambre()) {
+        hash = (37 * hash) + CHAMBRE_FIELD_NUMBER;
+        hash = (53 * hash) + getChambre().hashCode();
+      }
       hash = (37 * hash) + DATEDEBUT_FIELD_NUMBER;
       hash = (53 * hash) + getDateDebut().hashCode();
       hash = (37 * hash) + DATEFIN_FIELD_NUMBER;
@@ -6368,10 +6436,18 @@ public final class Hotel {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        clientId_ = 0L;
-
-        chambreId_ = 0L;
-
+        if (clientBuilder_ == null) {
+          client_ = null;
+        } else {
+          client_ = null;
+          clientBuilder_ = null;
+        }
+        if (chambreBuilder_ == null) {
+          chambre_ = null;
+        } else {
+          chambre_ = null;
+          chambreBuilder_ = null;
+        }
         dateDebut_ = "";
 
         dateFin_ = "";
@@ -6404,8 +6480,16 @@ public final class Hotel {
       @java.lang.Override
       public org.example.projetglobal.stubs.Hotel.ReservationRequest buildPartial() {
         org.example.projetglobal.stubs.Hotel.ReservationRequest result = new org.example.projetglobal.stubs.Hotel.ReservationRequest(this);
-        result.clientId_ = clientId_;
-        result.chambreId_ = chambreId_;
+        if (clientBuilder_ == null) {
+          result.client_ = client_;
+        } else {
+          result.client_ = clientBuilder_.build();
+        }
+        if (chambreBuilder_ == null) {
+          result.chambre_ = chambre_;
+        } else {
+          result.chambre_ = chambreBuilder_.build();
+        }
         result.dateDebut_ = dateDebut_;
         result.dateFin_ = dateFin_;
         result.preferences_ = preferences_;
@@ -6457,11 +6541,11 @@ public final class Hotel {
 
       public Builder mergeFrom(org.example.projetglobal.stubs.Hotel.ReservationRequest other) {
         if (other == org.example.projetglobal.stubs.Hotel.ReservationRequest.getDefaultInstance()) return this;
-        if (other.getClientId() != 0L) {
-          setClientId(other.getClientId());
+        if (other.hasClient()) {
+          mergeClient(other.getClient());
         }
-        if (other.getChambreId() != 0L) {
-          setChambreId(other.getChambreId());
+        if (other.hasChambre()) {
+          mergeChambre(other.getChambre());
         }
         if (!other.getDateDebut().isEmpty()) {
           dateDebut_ = other.dateDebut_;
@@ -6504,64 +6588,242 @@ public final class Hotel {
         return this;
       }
 
-      private long clientId_ ;
+      private org.example.projetglobal.stubs.Hotel.Client client_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.projetglobal.stubs.Hotel.Client, org.example.projetglobal.stubs.Hotel.Client.Builder, org.example.projetglobal.stubs.Hotel.ClientOrBuilder> clientBuilder_;
       /**
-       * <code>int64 clientId = 1;</code>
-       * @return The clientId.
+       * <code>.Client client = 1;</code>
+       * @return Whether the client field is set.
        */
-      public long getClientId() {
-        return clientId_;
+      public boolean hasClient() {
+        return clientBuilder_ != null || client_ != null;
       }
       /**
-       * <code>int64 clientId = 1;</code>
-       * @param value The clientId to set.
-       * @return This builder for chaining.
+       * <code>.Client client = 1;</code>
+       * @return The client.
        */
-      public Builder setClientId(long value) {
-        
-        clientId_ = value;
-        onChanged();
+      public org.example.projetglobal.stubs.Hotel.Client getClient() {
+        if (clientBuilder_ == null) {
+          return client_ == null ? org.example.projetglobal.stubs.Hotel.Client.getDefaultInstance() : client_;
+        } else {
+          return clientBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.Client client = 1;</code>
+       */
+      public Builder setClient(org.example.projetglobal.stubs.Hotel.Client value) {
+        if (clientBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          client_ = value;
+          onChanged();
+        } else {
+          clientBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>int64 clientId = 1;</code>
-       * @return This builder for chaining.
+       * <code>.Client client = 1;</code>
        */
-      public Builder clearClientId() {
-        
-        clientId_ = 0L;
-        onChanged();
+      public Builder setClient(
+          org.example.projetglobal.stubs.Hotel.Client.Builder builderForValue) {
+        if (clientBuilder_ == null) {
+          client_ = builderForValue.build();
+          onChanged();
+        } else {
+          clientBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
+      }
+      /**
+       * <code>.Client client = 1;</code>
+       */
+      public Builder mergeClient(org.example.projetglobal.stubs.Hotel.Client value) {
+        if (clientBuilder_ == null) {
+          if (client_ != null) {
+            client_ =
+              org.example.projetglobal.stubs.Hotel.Client.newBuilder(client_).mergeFrom(value).buildPartial();
+          } else {
+            client_ = value;
+          }
+          onChanged();
+        } else {
+          clientBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Client client = 1;</code>
+       */
+      public Builder clearClient() {
+        if (clientBuilder_ == null) {
+          client_ = null;
+          onChanged();
+        } else {
+          client_ = null;
+          clientBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Client client = 1;</code>
+       */
+      public org.example.projetglobal.stubs.Hotel.Client.Builder getClientBuilder() {
+        
+        onChanged();
+        return getClientFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Client client = 1;</code>
+       */
+      public org.example.projetglobal.stubs.Hotel.ClientOrBuilder getClientOrBuilder() {
+        if (clientBuilder_ != null) {
+          return clientBuilder_.getMessageOrBuilder();
+        } else {
+          return client_ == null ?
+              org.example.projetglobal.stubs.Hotel.Client.getDefaultInstance() : client_;
+        }
+      }
+      /**
+       * <code>.Client client = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.projetglobal.stubs.Hotel.Client, org.example.projetglobal.stubs.Hotel.Client.Builder, org.example.projetglobal.stubs.Hotel.ClientOrBuilder> 
+          getClientFieldBuilder() {
+        if (clientBuilder_ == null) {
+          clientBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.example.projetglobal.stubs.Hotel.Client, org.example.projetglobal.stubs.Hotel.Client.Builder, org.example.projetglobal.stubs.Hotel.ClientOrBuilder>(
+                  getClient(),
+                  getParentForChildren(),
+                  isClean());
+          client_ = null;
+        }
+        return clientBuilder_;
       }
 
-      private long chambreId_ ;
+      private org.example.projetglobal.stubs.Hotel.Chambre chambre_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.projetglobal.stubs.Hotel.Chambre, org.example.projetglobal.stubs.Hotel.Chambre.Builder, org.example.projetglobal.stubs.Hotel.ChambreOrBuilder> chambreBuilder_;
       /**
-       * <code>int64 chambreId = 2;</code>
-       * @return The chambreId.
+       * <code>.Chambre chambre = 2;</code>
+       * @return Whether the chambre field is set.
        */
-      public long getChambreId() {
-        return chambreId_;
+      public boolean hasChambre() {
+        return chambreBuilder_ != null || chambre_ != null;
       }
       /**
-       * <code>int64 chambreId = 2;</code>
-       * @param value The chambreId to set.
-       * @return This builder for chaining.
+       * <code>.Chambre chambre = 2;</code>
+       * @return The chambre.
        */
-      public Builder setChambreId(long value) {
-        
-        chambreId_ = value;
-        onChanged();
+      public org.example.projetglobal.stubs.Hotel.Chambre getChambre() {
+        if (chambreBuilder_ == null) {
+          return chambre_ == null ? org.example.projetglobal.stubs.Hotel.Chambre.getDefaultInstance() : chambre_;
+        } else {
+          return chambreBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.Chambre chambre = 2;</code>
+       */
+      public Builder setChambre(org.example.projetglobal.stubs.Hotel.Chambre value) {
+        if (chambreBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          chambre_ = value;
+          onChanged();
+        } else {
+          chambreBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>int64 chambreId = 2;</code>
-       * @return This builder for chaining.
+       * <code>.Chambre chambre = 2;</code>
        */
-      public Builder clearChambreId() {
-        
-        chambreId_ = 0L;
-        onChanged();
+      public Builder setChambre(
+          org.example.projetglobal.stubs.Hotel.Chambre.Builder builderForValue) {
+        if (chambreBuilder_ == null) {
+          chambre_ = builderForValue.build();
+          onChanged();
+        } else {
+          chambreBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
+      }
+      /**
+       * <code>.Chambre chambre = 2;</code>
+       */
+      public Builder mergeChambre(org.example.projetglobal.stubs.Hotel.Chambre value) {
+        if (chambreBuilder_ == null) {
+          if (chambre_ != null) {
+            chambre_ =
+              org.example.projetglobal.stubs.Hotel.Chambre.newBuilder(chambre_).mergeFrom(value).buildPartial();
+          } else {
+            chambre_ = value;
+          }
+          onChanged();
+        } else {
+          chambreBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Chambre chambre = 2;</code>
+       */
+      public Builder clearChambre() {
+        if (chambreBuilder_ == null) {
+          chambre_ = null;
+          onChanged();
+        } else {
+          chambre_ = null;
+          chambreBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Chambre chambre = 2;</code>
+       */
+      public org.example.projetglobal.stubs.Hotel.Chambre.Builder getChambreBuilder() {
+        
+        onChanged();
+        return getChambreFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Chambre chambre = 2;</code>
+       */
+      public org.example.projetglobal.stubs.Hotel.ChambreOrBuilder getChambreOrBuilder() {
+        if (chambreBuilder_ != null) {
+          return chambreBuilder_.getMessageOrBuilder();
+        } else {
+          return chambre_ == null ?
+              org.example.projetglobal.stubs.Hotel.Chambre.getDefaultInstance() : chambre_;
+        }
+      }
+      /**
+       * <code>.Chambre chambre = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.example.projetglobal.stubs.Hotel.Chambre, org.example.projetglobal.stubs.Hotel.Chambre.Builder, org.example.projetglobal.stubs.Hotel.ChambreOrBuilder> 
+          getChambreFieldBuilder() {
+        if (chambreBuilder_ == null) {
+          chambreBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.example.projetglobal.stubs.Hotel.Chambre, org.example.projetglobal.stubs.Hotel.Chambre.Builder, org.example.projetglobal.stubs.Hotel.ChambreOrBuilder>(
+                  getChambre(),
+                  getParentForChildren(),
+                  isClean());
+          chambre_ = null;
+        }
+        return chambreBuilder_;
       }
 
       private java.lang.Object dateDebut_ = "";
@@ -14531,47 +14793,48 @@ public final class Hotel {
       "tRequest\022\013\n\003nom\030\001 \001(\t\022\016\n\006prenom\030\002 \001(\t\022\r\n" +
       "\005email\030\003 \001(\t\022\021\n\ttelephone\030\004 \001(\t\"@\n\016Chamb" +
       "reRequest\022\014\n\004type\030\001 \001(\t\022\014\n\004prix\030\002 \001(\002\022\022\n" +
-      "\ndisponible\030\003 \001(\010\"r\n\022ReservationRequest\022" +
-      "\020\n\010clientId\030\001 \001(\003\022\021\n\tchambreId\030\002 \001(\003\022\021\n\t" +
-      "dateDebut\030\003 \001(\t\022\017\n\007dateFin\030\004 \001(\t\022\023\n\013pref" +
-      "erences\030\005 \001(\t\"N\n\022UtilisateurRequest\022\026\n\016n" +
-      "omUtilisateur\030\001 \001(\t\022\022\n\nmotDePasse\030\002 \001(\t\022" +
-      "\014\n\004role\030\003 \001(\t\"\007\n\005Empty\"\035\n\017ClientIdReques" +
-      "t\022\n\n\002id\030\001 \001(\003\"\036\n\020ChambreIdRequest\022\n\n\002id\030" +
-      "\001 \001(\003\"\"\n\024ReservationIdRequest\022\n\n\002id\030\001 \001(" +
-      "\003\"\"\n\024UtilisateurIdRequest\022\n\n\002id\030\001 \001(\003\"\037\n" +
-      "\014BoolResponse\022\017\n\007success\030\001 \001(\010\"1\n\025GetAll" +
-      "ClientsResponse\022\030\n\007clients\030\001 \003(\0132\007.Clien" +
-      "t\"4\n\026GetAllChambresResponse\022\032\n\010chambres\030" +
-      "\001 \003(\0132\010.Chambre\"@\n\032GetAllReservationsRes" +
-      "ponse\022\"\n\014reservations\030\001 \003(\0132\014.Reservatio" +
-      "n\"@\n\032GetAllUtilisateursResponse\022\"\n\014utili" +
-      "sateurs\030\001 \003(\0132\014.Utilisateur\"P\n\030UpdateRes" +
-      "ervationRequest\022\n\n\002id\030\001 \001(\003\022(\n\013reservati" +
-      "on\030\002 \001(\0132\023.ReservationRequest2\366\006\n\014HotelS" +
-      "ervice\022,\n\nallClients\022\006.Empty\032\026.GetAllCli" +
-      "entsResponse\022\'\n\nclientById\022\020.ClientIdReq" +
-      "uest\032\007.Client\022%\n\nsaveClient\022\016.ClientRequ" +
-      "est\032\007.Client\022/\n\014deleteClient\022\020.ClientIdR" +
-      "equest\032\r.BoolResponse\022.\n\013allChambres\022\006.E" +
-      "mpty\032\027.GetAllChambresResponse\022*\n\013chambre" +
-      "ById\022\021.ChambreIdRequest\032\010.Chambre\022(\n\013sav" +
-      "eChambre\022\017.ChambreRequest\032\010.Chambre\0221\n\rd" +
-      "eleteChambre\022\021.ChambreIdRequest\032\r.BoolRe" +
-      "sponse\0226\n\017allUtilisateurs\022\006.Empty\032\033.GetA" +
-      "llUtilisateursResponse\0226\n\017utilisateurByI" +
-      "d\022\025.UtilisateurIdRequest\032\014.Utilisateur\0224" +
-      "\n\017saveUtilisateur\022\023.UtilisateurRequest\032\014" +
-      ".Utilisateur\0229\n\021deleteUtilisateur\022\025.Util" +
-      "isateurIdRequest\032\r.BoolResponse\0226\n\017allRe" +
-      "servations\022\006.Empty\032\033.GetAllReservationsR" +
-      "esponse\0226\n\017reservationById\022\025.Reservation" +
-      "IdRequest\032\014.Reservation\0224\n\017saveReservati" +
-      "on\022\023.ReservationRequest\032\014.Reservation\0229\n" +
-      "\021deleteReservation\022\025.ReservationIdReques" +
-      "t\032\r.BoolResponse\022<\n\021updateReservation\022\031." +
-      "UpdateReservationRequest\032\014.ReservationB " +
-      "\n\036org.example.projetglobal.stubsb\006proto3"
+      "\ndisponible\030\003 \001(\010\"\201\001\n\022ReservationRequest" +
+      "\022\027\n\006client\030\001 \001(\0132\007.Client\022\031\n\007chambre\030\002 \001" +
+      "(\0132\010.Chambre\022\021\n\tdateDebut\030\003 \001(\t\022\017\n\007dateF" +
+      "in\030\004 \001(\t\022\023\n\013preferences\030\005 \001(\t\"N\n\022Utilisa" +
+      "teurRequest\022\026\n\016nomUtilisateur\030\001 \001(\t\022\022\n\nm" +
+      "otDePasse\030\002 \001(\t\022\014\n\004role\030\003 \001(\t\"\007\n\005Empty\"\035" +
+      "\n\017ClientIdRequest\022\n\n\002id\030\001 \001(\003\"\036\n\020Chambre" +
+      "IdRequest\022\n\n\002id\030\001 \001(\003\"\"\n\024ReservationIdRe" +
+      "quest\022\n\n\002id\030\001 \001(\003\"\"\n\024UtilisateurIdReques" +
+      "t\022\n\n\002id\030\001 \001(\003\"\037\n\014BoolResponse\022\017\n\007success" +
+      "\030\001 \001(\010\"1\n\025GetAllClientsResponse\022\030\n\007clien" +
+      "ts\030\001 \003(\0132\007.Client\"4\n\026GetAllChambresRespo" +
+      "nse\022\032\n\010chambres\030\001 \003(\0132\010.Chambre\"@\n\032GetAl" +
+      "lReservationsResponse\022\"\n\014reservations\030\001 " +
+      "\003(\0132\014.Reservation\"@\n\032GetAllUtilisateursR" +
+      "esponse\022\"\n\014utilisateurs\030\001 \003(\0132\014.Utilisat" +
+      "eur\"P\n\030UpdateReservationRequest\022\n\n\002id\030\001 " +
+      "\001(\003\022(\n\013reservation\030\002 \001(\0132\023.ReservationRe" +
+      "quest2\366\006\n\014HotelService\022,\n\nallClients\022\006.E" +
+      "mpty\032\026.GetAllClientsResponse\022\'\n\nclientBy" +
+      "Id\022\020.ClientIdRequest\032\007.Client\022%\n\nsaveCli" +
+      "ent\022\016.ClientRequest\032\007.Client\022/\n\014deleteCl" +
+      "ient\022\020.ClientIdRequest\032\r.BoolResponse\022.\n" +
+      "\013allChambres\022\006.Empty\032\027.GetAllChambresRes" +
+      "ponse\022*\n\013chambreById\022\021.ChambreIdRequest\032" +
+      "\010.Chambre\022(\n\013saveChambre\022\017.ChambreReques" +
+      "t\032\010.Chambre\0221\n\rdeleteChambre\022\021.ChambreId" +
+      "Request\032\r.BoolResponse\0226\n\017allUtilisateur" +
+      "s\022\006.Empty\032\033.GetAllUtilisateursResponse\0226" +
+      "\n\017utilisateurById\022\025.UtilisateurIdRequest" +
+      "\032\014.Utilisateur\0224\n\017saveUtilisateur\022\023.Util" +
+      "isateurRequest\032\014.Utilisateur\0229\n\021deleteUt" +
+      "ilisateur\022\025.UtilisateurIdRequest\032\r.BoolR" +
+      "esponse\0226\n\017allReservations\022\006.Empty\032\033.Get" +
+      "AllReservationsResponse\0226\n\017reservationBy" +
+      "Id\022\025.ReservationIdRequest\032\014.Reservation\022" +
+      "4\n\017saveReservation\022\023.ReservationRequest\032" +
+      "\014.Reservation\0229\n\021deleteReservation\022\025.Res" +
+      "ervationIdRequest\032\r.BoolResponse\022<\n\021upda" +
+      "teReservation\022\031.UpdateReservationRequest" +
+      "\032\014.ReservationB \n\036org.example.projetglob" +
+      "al.stubsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -14618,7 +14881,7 @@ public final class Hotel {
     internal_static_ReservationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ReservationRequest_descriptor,
-        new java.lang.String[] { "ClientId", "ChambreId", "DateDebut", "DateFin", "Preferences", });
+        new java.lang.String[] { "Client", "Chambre", "DateDebut", "DateFin", "Preferences", });
     internal_static_UtilisateurRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_UtilisateurRequest_fieldAccessorTable = new

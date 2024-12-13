@@ -67,21 +67,12 @@ input ChambreInput {
 }
 
 input ReservationInput {
-    clientId: ID!
-    chambreId: ID!
-    dateDebut: String!
-    dateFin: String!
-    preferences: String
-}
-
-input ReservationUpdateInput {
     clientId: ID
     chambreId: ID
     dateDebut: String
     dateFin: String
     preferences: String
 }
-
 
 input UtilisateurInput {
     nomUtilisateur: String!
@@ -100,9 +91,9 @@ type Mutation {
     deleteChambre(id: ID!) : Boolean
 
     # Reservation Mutations
-    saveReservation(reservation: ReservationInput): Reservation
+    saveReservation(reservation: ReservationInput!): Reservation
     deleteReservation(id: ID!) : Boolean
-    updateReservation(id: ID!, reservation: ReservationUpdateInput) : Reservation
+    updateReservation(id: ID!, reservation: ReservationInput) : Reservation
 
     # Utilisateur Mutations
     saveUtilisateur(utilisateur: UtilisateurInput): Utilisateur
