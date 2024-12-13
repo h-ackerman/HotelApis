@@ -24,6 +24,7 @@ public class Reservation {
     private String dateDebut;
 
     private String dateFin;
+    @Column(columnDefinition = "Text")
 
     private String preferences;
 
