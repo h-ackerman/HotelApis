@@ -1,12 +1,18 @@
 package org.example.projetglobal.rest;
 
+import org.example.projetglobal.entities.Chambre;
+import org.example.projetglobal.entities.Client;
 import org.example.projetglobal.entities.Reservation;
+import org.example.projetglobal.repositories.ChambreRepository;
+import org.example.projetglobal.repositories.ClientRepository;
 import org.example.projetglobal.repositories.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/reservations")
@@ -14,6 +20,7 @@ public class ReservationRestController {
 
     @Autowired
     private ReservationRepository reservationRepository;
+
 
     @GetMapping
     public List<Reservation> getAllReservations() {
@@ -31,6 +38,8 @@ public class ReservationRestController {
     public Reservation createReservation(@RequestBody Reservation reservation) {
         return reservationRepository.save(reservation);
     }
+
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Reservation> deleteReservation(@PathVariable Long id) {
