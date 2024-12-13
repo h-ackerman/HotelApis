@@ -62,26 +62,7 @@ public class ReservationGrpcService extends HotelServiceGrpc.HotelServiceImplBas
 
         // Map each domain Reservation to a gRPC Reservation
         List<Hotel.Reservation> grpcReservations = reservations.stream()
-                .map(reservation -> Hotel.Reservation.newBuilder()
-                        .setId(reservation.getId())
-                        .setClient(Hotel.Client.newBuilder()
-                                .setId(reservation.getClient().getId())
-                                .setNom(reservation.getClient().getNom())
-                                .setPrenom(reservation.getClient().getPrenom())
-                                .setEmail(reservation.getClient().getEmail())
-                                .setTelephone(reservation.getClient().getTelephone())
-                                .build())
-                        .setChambre(Hotel.Chambre.newBuilder()
-                                .setId(reservation.getChambre().getId())
-                                .setType(reservation.getChambre().getType().name())
-                                .setPrix((float)reservation.getChambre().getPrix())
-                                .setDisponible(reservation.getChambre().isDisponible())
-                                .build())
-                        .setDateDebut(reservation.getDateDebut())
-                        .setDateFin(reservation.getDateFin())
-                        .setPreferences(reservation.getPreferences())
-                        .build())
-                .collect(Collectors.toList());
+                .map(reservation -> entityToGrpc(reservation)).collect(Collectors.toList());
 
         // Build the response
         Hotel.GetAllReservationsResponse response = Hotel.GetAllReservationsResponse.newBuilder()
